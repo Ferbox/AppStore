@@ -7,6 +7,6 @@
         public int? ProductId { get; set; }
         public int? FeedbackId { get; set; }
 
-        //12
+        //лфровмиивм
     }
 }
