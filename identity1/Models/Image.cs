@@ -6,5 +6,7 @@
         public string Path { get; set; }
         public int? ProductId { get; set; }
         public int? FeedbackId { get; set; }
+
+        //kj
     }
 }
