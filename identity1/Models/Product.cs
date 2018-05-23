@@ -15,11 +15,12 @@
         }
 
         public int ProductId { get; set; }
+
         public string Title { get; set; }
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
-        [DataType(DataType.Currency)]
         public int CountInStock { get; set; }
+        [DataType(DataType.Currency)]
         public decimal CostProduct { get; set; }
         public int TypeId { get; set; }
         public ICollection<Feedback> Feedback { get; set; }

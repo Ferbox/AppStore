@@ -9,49 +9,50 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountInStock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CostProduct)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TypeId)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountInStock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostProduct)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <li class="product-wrapper">
+        <a href="" class="product">
+            <div class="product-main">
+                <div class="product-photo">
+                    <img src="~/Content/Images/IphoneX.jpg" />
+                    <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
+                </div>
+                <div class="product-text">
+                    <h2 >@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p >@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+            </div>
+            <div class="product-details-wrap">
+                <div class="product-details-wrap">
+                    <div class="product-availability">
+                        @if (item.CountInStock == 0)
+                        {
+                            @:Нет в наличии
+                        }
+                        else
+                        {
+                            @:В наличии
+                        }
+                    </div>
+                    <span class="product-price product-price-old">
+                        <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
+                        <small>$</small>
+                        
+                    </span>
+                    <span class="product-price">
+                        <b>899</b>
+                        <small>$</small>
+                    </span>
+                </div>
+                <div class="product-buttons-wrap">
+                    <div class="buttons">
+                        <span class="button to_cart">"В корзину"</span>
+                        <span class="button">Купить</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
 }
-
-</table>
+    <link href="~/Content/index.css" rel="stylesheet" />
