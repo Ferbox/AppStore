@@ -140,5 +140,21 @@ namespace identity1.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public bool AddToBAsket(int id)
+        {
+            for (int i = 0;i < Session.Count;i++)
+            {
+                int temp = int.Parse(Session[i].ToString());
+                if (temp == id)
+                {
+                    return false;
+                }
+            }
+            Session[id] = id;
+            return true;
+        }
+
+
     }
 }

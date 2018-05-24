@@ -160,7 +160,7 @@ namespace identity1.Controllers
                     await UserManager.AddToRoleAsync(user.Id, "user");
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Index", "Products", new { type = 1 });
                 }
                 AddErrors(result);
             }
@@ -389,7 +389,7 @@ namespace identity1.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Products");
         }
 
         //
@@ -446,7 +446,7 @@ namespace identity1.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Products");
         }
 
         internal class ChallengeResult:HttpUnauthorizedResult

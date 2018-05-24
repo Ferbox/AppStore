@@ -19,8 +19,8 @@
                     <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
                 </div>
                 <div class="product-text">
-                    <h2 >@Html.DisplayFor(modelItem => item.Title)</h2>
-                    <p >@Html.DisplayFor(modelItem => item.Description)</p>
+                    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
                 </div>
             </div>
             <div class="product-details-wrap">
@@ -29,30 +29,42 @@
                         @if (item.CountInStock == 0)
                         {
                             @:Нет в наличии
-                        }
+        }
                         else
                         {
                             @:В наличии
-                        }
+        }
                     </div>
                     <span class="product-price product-price-old">
                         <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
                         <small>$</small>
-                        
+
                     </span>
                     <span class="product-price">
                         <b>899</b>
                         <small>$</small>
                     </span>
                 </div>
-                <div class="product-buttons-wrap">
-                    <div class="buttons">
-                        <span class="button to_cart">"В корзину"</span>
-                        <span class="button">Купить</span>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="product-buttons-wrap">
+                        <div class="buttons">
+                            
+                            <span class="button to_cart">В корзину</span>@*Добавить ajax для добавления продукта*@
+                            <span class="button">Купить</span>
+                        </div>
                     </div>
-                </div>
+                }
+                else
+                {
+                    <div class="product-buttons-wrap">
+                        <div class="buttons">
+                            <span class="button">Войти</span>
+                        </div>
+                    </div>
+                }
             </div>
         </a>
     </li>
 }
-    <link href="~/Content/index.css" rel="stylesheet" />
+<link href="~/Content/index.css" rel="stylesheet" />
