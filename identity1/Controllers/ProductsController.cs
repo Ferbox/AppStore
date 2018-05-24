@@ -51,6 +51,10 @@ namespace identity1.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            List<string> Types = new List<string> { "iPhone", "iMac", "iPad", "MacBook", "Watch", "Accessories" };
+
+            SelectList types = new SelectList(Types);
+            ViewBag.Types = types;
             return View();
         }
 
