@@ -1,0 +1,24 @@
+﻿.label {
+    color: white;
+    font-size: 28px;
+    
+}
+.title:hover {
+    color:white;
+}
+.description {
+    color: white;
+}
+.count {
+    color: white;
+}
+.cost {
+    color: white;
+}
+.btn {
+    height:30px;
+    width:100px;
+    font-size:20px;
+    background:silver;
+    font-weight:700;
+}
