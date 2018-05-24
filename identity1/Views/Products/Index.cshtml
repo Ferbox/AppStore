@@ -29,11 +29,11 @@
                         @if (item.CountInStock == 0)
                         {
                             @:Нет в наличии
-        }
+                        }
                         else
                         {
                             @:В наличии
-        }
+                        }
                     </div>
                     <span class="product-price product-price-old">
                         <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
@@ -49,8 +49,7 @@
                 {
                     <div class="product-buttons-wrap">
                         <div class="buttons">
-                            
-                            <span class="button to_cart">В корзину</span>@*Добавить ajax для добавления продукта*@
+                            <span id="@item.ProductId" class="button to_cart">В корзину</span>
                             <span class="button">Купить</span>
                         </div>
                     </div>
@@ -68,3 +67,5 @@
     </li>
 }
 <link href="~/Content/index.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/basket.js"></script>

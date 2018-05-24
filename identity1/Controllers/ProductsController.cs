@@ -140,9 +140,9 @@ namespace identity1.Controllers
             }
             base.Dispose(disposing);
         }
-
         public bool AddToBAsket(int id)
         {
+            
             for (int i = 0;i < Session.Count;i++)
             {
                 int temp = int.Parse(Session[i].ToString());
@@ -151,7 +151,8 @@ namespace identity1.Controllers
                     return false;
                 }
             }
-            Session[id] = id;
+
+            Session[id.ToString()] = id.ToString();
             return true;
         }
 
