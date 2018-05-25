@@ -44,8 +44,31 @@ namespace identity1.Controllers
         }
 
         // GET: Products/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> PageOfProduct(int? id)
         {
+            Image image = new Image { ImageId = 1, Path = @"\Content\Images\IphoneX.jpg" };
+            Product product_1 = new Product { ProductId = 1, Title = "iPhone X", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_2 = new Product { ProductId = 2, Title = "iMac", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 2 };
+            Product product_3 = new Product { ProductId = 3, Title = "MacBook", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 3 };
+            Product product_4 = new Product { ProductId = 4, Title = "iPhone 8", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_5 = new Product { ProductId = 5, Title = "iPad", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 4 };
+            Product product_6 = new Product { ProductId = 6, Title = "MacBook Pro", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 3 };
+            Product product_7 = new Product { ProductId = 7, Title = "iPhone 7", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_8 = new Product { ProductId = 8, Title = "iPad Pro", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 2 };
+            Product product_9 = new Product { ProductId = 9, Title = "iPhone 6s", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 1 };
+            Product product_10 = new Product { ProductId = 10, Title = "iPhone 5s", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_11 = new Product { ProductId = 11, Title = "iPad(2018)", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 4 };
+            Product product_12 = new Product { ProductId = 12, Title = "MacBook Air", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 3 };
+            Product product_13 = new Product { ProductId = 13, Title = "iPhone 4", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_14 = new Product { ProductId = 14, Title = "iPad Air", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 4 };
+            Product product_15 = new Product { ProductId = 15, Title = "MacBook Pro Bar", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 3 };
+            Product product_16 = new Product { ProductId = 16, Title = "iPhone 7 Plus", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 999, TypeId = 1 };
+            Product product_17 = new Product { ProductId = 17, Title = "iPad Pro 12.9", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 899, TypeId = 2 };
+            Product product_18 = new Product { ProductId = 18, Title = "iPhone 6s Plus", Description = "Last model", Images = new List<Image>() { image }, CostProduct = 799, TypeId = 1 };
+
+            List<Product> list = new List<Product> { product_1, product_2, product_3, product_4, product_5, product_6, product_7, product_8, product_9,
+             product_10, product_11, product_12, product_13, product_14, product_15, product_16, product_17, product_18};
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

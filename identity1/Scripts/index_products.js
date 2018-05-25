@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $('.button').on('click', function () {
+    $('.to_cart').on('click', function () {
         var _id = $(this).attr("id");
         $.ajax({
             type: "POST",
@@ -17,4 +17,11 @@
 
 
     });
+    
+    $('.button').on('click', function () {
+        var _id = $(this).attr("id");
+        document.location.href = "/Products/PageOfProduct/" + _id;
+    });
+
+
 });
