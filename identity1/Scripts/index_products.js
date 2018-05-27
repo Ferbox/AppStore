@@ -17,10 +17,13 @@
 
 
     });
-    
+
     $('.button').on('click', function () {
         var _id = $(this).attr("id");
-        document.location.href = "/Products/PageOfProduct/" + _id;
+        $.post({
+            url: "/Products/PageOfProduct",
+            data: { id: _id }
+        });
     });
 
 

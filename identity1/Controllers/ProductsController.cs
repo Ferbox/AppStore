@@ -73,11 +73,12 @@ namespace identity1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await db.Products.FindAsync(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
+            var product = list.FirstOrDefault(x => x.ProductId == id);
+            //Product product = await db.Products.FindAsync(id);
+            //if (product == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(product);
         }
 
