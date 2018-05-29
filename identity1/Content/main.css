@@ -144,7 +144,7 @@ label, a { /*при наведении на стрелки или переклю
 }
 
 body {
-    background-color: black;
+    background-color: gray;
 }
 /*позиция изображения при активации переключателя*/
 #switch1:checked ~ #slides .image {
