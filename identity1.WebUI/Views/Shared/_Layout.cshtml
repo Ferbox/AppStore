@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Styles/style_index.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        
+        <div class="navbar-collapse collapse">
+            @Html.ActionLink("Корзина", "Basket")
+            
+            @Html.Partial("_LoginPartial")
+        </div>
+
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="display:flex;margin:0 auto; justify-content:space-between">
+
+            <div class="text"><a href="~/Views/Main/Index.cshtml">Main Page</a></div>
+            <div class="text">@Html.ActionLink("MacBook", "Index", "Products", new { type = 2 }, null)</div>
+            <div class="text">@Html.ActionLink("Iphone", "Index", "Products", new { type = 1 }, null)</div>
+            <div class="text">@Html.ActionLink("Ipad Pro", "Index", "Products", new { type = 3 }, null)</div>
+            <div class="text">@Html.ActionLink("Watch 3", "Index", "Products", new { type = 5 }, null)</div>
+            <div class="text">@Html.ActionLink("Mono", "Index", "Products", new { type = 4 }, null)</div>
+            <div class="text">@Html.ActionLink("Accessories", "Index", "Products", new { type = 6 }, null)</div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/main.css" rel="stylesheet" />
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
