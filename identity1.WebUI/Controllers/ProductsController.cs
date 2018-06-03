@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
-using identity1.Domain;
 using System.Collections.Generic;
 using identity1.Domain.Entities;
 using identity1.Domain.Abstract;
@@ -43,6 +42,9 @@ namespace identity1.Controllers
             return View(product);
         }
 
+
+
+        #region AdminFunctions
         // GET: Products/Create
         [Authorize(Roles = "admin")]
         public ActionResult Create()
@@ -124,7 +126,7 @@ namespace identity1.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
+        #endregion
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -135,7 +137,6 @@ namespace identity1.Controllers
         }
         public bool AddToBAsket(int id)
         {
-
             for (int i = 0;i < Session.Count;i++)
             {
                 int tempId = int.Parse(Session[i].ToString());
@@ -173,7 +174,18 @@ namespace identity1.Controllers
             }
             return RedirectToAction("Basket");
         }
+        //partial view
+        public ActionResult ProductList()
+        {
+            int[] productIdInBasket = new int[Session.Count];
+            for (int i = 0;i < Session.Count;i++)
+            {
+                productIdInBasket[i] = int.Parse(Session[i].ToString());
+            }
+            IEnumerable<Product> products = repository.GetProducts.Where(p => productIdInBasket.Contains(p.ProductId));
 
+            return View(products);
+        }
 
 
 

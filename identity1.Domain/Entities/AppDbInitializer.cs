@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using identity1.Domain.App_Start;
-namespace RolesIdentityApp.Domain.Entities
+namespace identity1.Domain.Entities
 {
     public class AppDbInitializer:DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {

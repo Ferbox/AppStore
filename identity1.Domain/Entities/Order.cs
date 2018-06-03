@@ -17,7 +17,8 @@
         public DateTime UpdateDate { get; set; }
         public int Count { get; set; }
         public string UserId { get; set; }
-        public int StatusId { get; set; }
+        public int StatusId { get; set; } = 1;
+        public string DeliveryAddress { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

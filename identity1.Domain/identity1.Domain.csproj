@@ -107,9 +107,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IOrderProcessor.cs" />
+    <Compile Include="Abstract\IOrderRepository.cs" />
     <Compile Include="Abstract\IProductsRepository.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="Concrete\EFOrderRepository.cs" />
     <Compile Include="Concrete\EFProductsRepository.cs" />
     <Compile Include="Entities\AccountViewModels.cs" />
     <Compile Include="Entities\AppDbInitializer.cs" />
@@ -130,6 +131,22 @@
     <Compile Include="Migrations\201806012055380_Initial.Designer.cs">
       <DependentUpon>201806012055380_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806021631347_update order.cs" />
+    <Compile Include="Migrations\201806021631347_update order.Designer.cs">
+      <DependentUpon>201806021631347_update order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806022012514_Initial1.cs" />
+    <Compile Include="Migrations\201806022012514_Initial1.Designer.cs">
+      <DependentUpon>201806022012514_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806022139058_Initial2.cs" />
+    <Compile Include="Migrations\201806022139058_Initial2.Designer.cs">
+      <DependentUpon>201806022139058_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806030954209_refresh.cs" />
+    <Compile Include="Migrations\201806030954209_refresh.Designer.cs">
+      <DependentUpon>201806030954209_refresh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,15 +154,25 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201806011958141_update database.resx">
       <DependentUpon>201806011958141_update database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806012055380_Initial.resx">
       <DependentUpon>201806012055380_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806021631347_update order.resx">
+      <DependentUpon>201806021631347_update order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022012514_Initial1.resx">
+      <DependentUpon>201806022012514_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022139058_Initial2.resx">
+      <DependentUpon>201806022139058_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806030954209_refresh.resx">
+      <DependentUpon>201806030954209_refresh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,11 +1,5 @@
 ﻿@model IEnumerable<identity1.Domain.Entities.Product>
 
-@{
-    ViewBag.Title = "Корзина";
-}
-
-<h2>Basket</h2>
-
 <table class="table">
     <tr>
         <th>
@@ -31,16 +25,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.CostProduct)
         </td>
-        
         <td>
-            @Html.ActionLink("Удалить", "DeleteFromBasket", null, new { @class = "delete", @id = item.ProductId })
+            @*Кнопки для корзины*@
         </td>
     </tr>
 }
 
 </table>
-
-@Html.ActionLink("Оформить заказ", "OrderPage", "Order", null , null)
-
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/basket.js"></script>

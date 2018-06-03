@@ -9,7 +9,6 @@ namespace identity1.Domain.Migrations
     {
         public Configuration()
         {
-            
             AutomaticMigrationsEnabled = true;
         }
 

@@ -30,8 +30,7 @@ namespace identity1.Domain.Entities
 
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext()
-            : base("AppStore", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("AppStore", throwIfV1Schema: false)
         {
 
         }

@@ -2,9 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using identity1.Domain;
 using identity1.Domain.Entities;
-using RolesIdentityApp.Domain.Entities;
 
 namespace identity1
 {
