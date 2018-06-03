@@ -64,7 +64,7 @@ a {
     }
 
     .site-container {
-        overflow: hidden;
+        overflow:hidden;
         
 
     }
@@ -76,7 +76,7 @@ a {
     }
 
     .body-content {
-       
+        position:relative;
         top: 66px;
         right: 0;
         left: 0;
@@ -87,7 +87,7 @@ a {
     }
 
     .header {
-        position: static;
+        position:fixed;
         z-index: 100;
     }
 

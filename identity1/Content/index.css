@@ -1,7 +1,7 @@
 ﻿
 
 .product-wrapper {
-
+  
     display: block;
     width: 100%;
     float: left;
@@ -17,7 +17,6 @@
     margin: 0 10px 10px 0;
     text-decoration: none;
     color: #474747;
-    z-index: 0;
     height: auto;
 }
 
@@ -36,7 +35,6 @@
     .product-photo img {
         transform: scale(0.95);
         position: absolute;
-        
         bottom: 0;
         left: 0;
         right: 0;
