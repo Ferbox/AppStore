@@ -1,0 +1,72 @@
+﻿@model identity1.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Product</h4>
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table width="100%" cellspacing="0" cellpadding="4">
+        <tr>
+            <td align="right" width="100">@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "label title" })</td>
+            <td>@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form title" } })</td>
+            <td>
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "label description" })
+            </td>
+            <td> @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form description" } })</td>
+            <td>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">@Html.LabelFor(model => model.CountInStock, htmlAttributes: new { @class = "label count" })</td>
+            <td>
+                @Html.EditorFor(model => model.CountInStock, new { htmlAttributes = new { @class = "form count" } })
+            </td>
+            <td> @Html.ValidationMessageFor(model => model.CountInStock, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">@Html.LabelFor(model => model.CostProduct, htmlAttributes: new { @class = "label cost" })</td>
+            <td>
+                @Html.EditorFor(model => model.CostProduct, new { htmlAttributes = new { @class = "form cost" } })
+            </td>
+            <td>  @Html.ValidationMessageFor(model => model.CostProduct, "", new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">@Html.LabelFor(model => model.TypeId, htmlAttributes: new { @class = "label type" })</td>
+            <td>
+                @Html.DropDownList("Type", ViewBag.Types as SelectList , new { @class = "type" });
+            </td>
+            <td>  </td>
+        </tr>
+
+    </table>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" />
+    </div>
+    </div>
+
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Products_Create.css" rel="stylesheet" />
+}
