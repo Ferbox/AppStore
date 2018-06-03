@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<identity1.Domain.Entities.Product>
-
+@{
+    Layout = null;
+}
 <table class="table">
     <tr>
         <th>
@@ -14,21 +16,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostProduct)
-        </td>
-        <td>
-            @*Кнопки для корзины*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostProduct)
+            </td>
+            <td>
+                @*Кнопки для корзины*@
+            </td>
+        </tr>
+    }
 
 </table>
+
+

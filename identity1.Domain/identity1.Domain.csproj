@@ -119,7 +119,7 @@
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\ManageViewModels.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderDetails.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\Type.cs" />
@@ -147,6 +147,14 @@
     <Compile Include="Migrations\201806030954209_refresh.Designer.cs">
       <DependentUpon>201806030954209_refresh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806031238043_Changeorder.cs" />
+    <Compile Include="Migrations\201806031238043_Changeorder.Designer.cs">
+      <DependentUpon>201806031238043_Changeorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806031320149_Add_OrderItem.cs" />
+    <Compile Include="Migrations\201806031320149_Add_OrderItem.Designer.cs">
+      <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -173,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806030954209_refresh.resx">
       <DependentUpon>201806030954209_refresh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031238043_Changeorder.resx">
+      <DependentUpon>201806031238043_Changeorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031320149_Add_OrderItem.resx">
+      <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

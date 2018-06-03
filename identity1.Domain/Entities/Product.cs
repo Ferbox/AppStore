@@ -11,7 +11,7 @@
         {
             this.Feedback = new HashSet<Feedback>();
             this.Images = new HashSet<Image>();
-            this.Orders = new HashSet<Order>();
+            this.OrderItem = new HashSet<OrderItem>();
         }
 
         public int ProductId { get; set; }
@@ -25,6 +25,6 @@
         public int TypeId { get; set; }
         public ICollection<Feedback> Feedback { get; set; }
         public ICollection<Image> Images { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<OrderItem> OrderItem { get; set; }
     }
 }
