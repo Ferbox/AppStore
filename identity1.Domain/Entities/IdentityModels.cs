@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace identity1.Domain.Entities
 {
     // В профиль пользователя можно добавить дополнительные данные, если указать больше свойств для класса ApplicationUser. Подробности см. на странице https://go.microsoft.com/fwlink/?LinkID=317594.
-    public class User : IdentityUser
+    public class User:IdentityUser
     {
         public User()
         {
@@ -28,7 +28,7 @@ namespace identity1.Domain.Entities
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext:IdentityDbContext<User>
     {
         public ApplicationDbContext() : base("AppStore", throwIfV1Schema: false)
         {
@@ -40,6 +40,12 @@ namespace identity1.Domain.Entities
         public DbSet<Image> Images { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Status> Statuses { get; set; }
+        public DbSet<OrderItem> OrderItem { get; set; }
+        public DbSet<Characteristics> Characteristics { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Display> Displays { get; set; }
+        public DbSet<SizeBody> SizeBody { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

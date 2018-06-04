@@ -114,13 +114,18 @@
     <Compile Include="Concrete\EFProductsRepository.cs" />
     <Compile Include="Entities\AccountViewModels.cs" />
     <Compile Include="Entities\AppDbInitializer.cs" />
+    <Compile Include="Entities\Characteristics.cs" />
+    <Compile Include="Entities\Color.cs" />
+    <Compile Include="Entities\Display.cs" />
     <Compile Include="Entities\Feedback.cs" />
     <Compile Include="Entities\IdentityModels.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\ManageViewModels.cs" />
+    <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\SizeBody.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\Type.cs" />
     <Compile Include="Migrations\201806011958141_update database.cs" />
@@ -155,8 +160,23 @@
     <Compile Include="Migrations\201806031320149_Add_OrderItem.Designer.cs">
       <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806031525143_Add_DBSet_OrderItem.cs" />
+    <Compile Include="Migrations\201806031525143_Add_DBSet_OrderItem.Designer.cs">
+      <DependentUpon>201806031525143_Add_DBSet_OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041634102_added_characteristics_of_product.cs" />
+    <Compile Include="Migrations\201806041634102_added_characteristics_of_product.Designer.cs">
+      <DependentUpon>201806041634102_added_characteristics_of_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041642412_added_relation_between_prod_and_charak.cs" />
+    <Compile Include="Migrations\201806041642412_added_relation_between_prod_and_charak.Designer.cs">
+      <DependentUpon>201806041642412_added_relation_between_prod_and_charak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\OrderList.cs" />
+    <Compile Include="ViewModels\ProductPage.cs" />
+    <Compile Include="ViewModels\ProductPageInCatalog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -187,6 +207,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806031320149_Add_OrderItem.resx">
       <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031525143_Add_DBSet_OrderItem.resx">
+      <DependentUpon>201806031525143_Add_DBSet_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041634102_added_characteristics_of_product.resx">
+      <DependentUpon>201806041634102_added_characteristics_of_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041642412_added_relation_between_prod_and_charak.resx">
+      <DependentUpon>201806041642412_added_relation_between_prod_and_charak.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

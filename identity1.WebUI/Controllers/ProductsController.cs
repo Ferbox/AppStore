@@ -21,25 +21,20 @@ namespace identity1.Controllers
         // GET: Products
         public ActionResult Index(int type = 1)
         {
-            var products = repository.GetProducts.Where(x => x.TypeId == type);
-
+            var products = repository.GetProductsForCatalog(type);
             return View(products);
         }
 
         // GET: Products/Details/5
-        public ActionResult PageOfProduct(int? id)
+        public ActionResult PageOfProduct(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var product = repository.GetProducts.FirstOrDefault(x => x.ProductId == id);
+            var product = repository.GetProduct(id);
             //Product product = await db.Products.FindAsync(id);
-            //if (product == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            return View(product);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View();
         }
 
 
@@ -156,11 +151,11 @@ namespace identity1.Controllers
             {
                 productIdInBasket[i] = int.Parse(Session[i].ToString());
             }
-            IEnumerable<Product> products = repository.GetProducts.Where(p => productIdInBasket.Contains(p.ProductId));
-            //IEnumerable<Product> products = from p in db.Products
+            //IEnumerable<Product> products = repository.GetProductsForCatalog.Where(p => productIdInBasket.Contains(p.ProductId));
+            ////IEnumerable<Product> products = from p in db.Products
             //               where productIdInBasket.Contains(p.ProductId)
             //               select new { p.Description, p.Title , p.CostProduct , p.Images };
-            return View(products);
+            return View();
         }
 
         public ActionResult DeleteFromBasket(int id)
@@ -175,17 +170,6 @@ namespace identity1.Controllers
             return RedirectToAction("Basket");
         }
         //partial view
-        public ActionResult ProductList()
-        {
-            int[] productIdInBasket = new int[Session.Count];
-            for (int i = 0;i < Session.Count;i++)
-            {
-                productIdInBasket[i] = int.Parse(Session[i].ToString());
-            }
-            IEnumerable<Product> products = repository.GetProducts.Where(p => productIdInBasket.Contains(p.ProductId));
-
-            return View(products);
-        }
 
 
 
