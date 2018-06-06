@@ -1,50 +1,50 @@
-﻿@model IEnumerable<identity1.Domain.ViewModels.ProductPageInCatalog>
+@model IEnumerable<identity1.Domain.Entities.Product>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@foreach (var item in Model)
-{
-    <li class="product-wrapper">
-        <a href="" class="product">
-            <div class="product-main">
-                <div class="product-photo">
-                    <img src="~/Content/Images/IphoneX.jpg" />
-                    <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
-                </div>
-                <div class="product-text">
-                    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+<div id="Catalog">
+    <div class="">
+        @Html.ActionLink("Create New", "Create")
+    </div>
+    @foreach (var item in Model)
+    {
+        <li class="product-wrapper">
+            <a href="" class="product">
+                <div class="product-main">
+                    <div class="product-photo">
+                        <img src="~/Content/Images/IphoneX.jpg" />
+                        <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
                     </div>
-            </div>
-            <div class="product-details-wrap">
+                    <div class="product-text">
+                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
+                </div>
                 <div class="product-details-wrap">
-                    <div class="product-availability">
-                        @if (item.CountInStock == 0)
-                        {
-                            @:Нет в наличии
-                        }
-                        else
-                        {
-                            @:В наличии
-                        }
-                    </div>
-                    <span class="product-price product-price-old">
-                        <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
-                        <small>$</small>
+                    <div class="product-details-wrap">
+                        <div class="product-availability">
+                            @if (item.CountInStock == 0)
+                            {
+                                @:Нет в наличии
+        }
+                            else
+                            {
+                                @:В наличии
+        }
+                        </div>
+                        <span class="product-price product-price-old">
+                            <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
+                            <small>$</small>
 
-                    </span>
-                    <span class="product-price">
-                        <b>899</b>
-                        <small>$</small>
-                    </span>
-                </div>
-                @if (User.Identity.IsAuthenticated)
+                        </span>
+                        <span class="product-price">
+                            <b>899</b>
+                            <small>$</small>
+                        </span>
+                    </div>
+                    @if (User.Identity.IsAuthenticated)
                 {
                     <div class="product-buttons-wrap">
                         <div class="buttons">
