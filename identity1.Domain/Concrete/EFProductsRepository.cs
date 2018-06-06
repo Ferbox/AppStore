@@ -40,12 +40,18 @@ namespace identity1.Domain.Concrete
             return productlist;
         }
 
-        public ProductPage GetProduct(int id)
+        public Product GetProduct(int id)
         {
-            //var product = from p in DbContext.Products
-            //              join i in DbContext.Images on p.ProductId equals i.ProductId
-            //              join
-            return null;
+            var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
+            return product;
+        }
+
+        public IEnumerable<Product> GetProductForBasket(int[] prodInBasket)
+        {
+            var products = from p in DbContext.Products
+                           where prodInBasket.Contains(p.ProductId)
+                           select p;
+            return products;
         }
     }
 }

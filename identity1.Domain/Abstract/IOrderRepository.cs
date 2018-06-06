@@ -7,7 +7,7 @@ namespace identity1.Domain.Abstract
 {
     public interface IOrderRepository
     {
-        void CreateOrder(Order order);
+        void CreateOrder(Order order, string id);
         IEnumerable<OrderList> GetOrderList(int[] ProductidFromSession);
     }
 }

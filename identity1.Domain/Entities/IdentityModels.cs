@@ -30,7 +30,7 @@ namespace identity1.Domain.Entities
 
     public class ApplicationDbContext:IdentityDbContext<User>
     {
-        public ApplicationDbContext() : base("AppStore", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("name=Apple", throwIfV1Schema: false)
         {
 
         }
@@ -41,7 +41,6 @@ namespace identity1.Domain.Entities
         public DbSet<Order> Orders { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
-        public DbSet<Characteristics> Characteristics { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Display> Displays { get; set; }

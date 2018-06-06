@@ -6,10 +6,10 @@ namespace identity1.Domain.Entities
     {
         public Display()
         {
-            Characteristics = new HashSet<Characteristics>(); 
+            Products = new HashSet<Product>(); 
         }
         public int DisplayId { get; set; }
         public float Size { get; set; }
-        public ICollection<Characteristics> Characteristics { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

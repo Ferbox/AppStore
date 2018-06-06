@@ -8,7 +8,8 @@ namespace identity1.Domain.Abstract
     {
 
         IEnumerable<ProductPageInCatalog> GetProductsForCatalog(int type);
-        ProductPage GetProduct(int id);
+        Product GetProduct(int id);
+        IEnumerable<Product> GetProductForBasket(int[] prodInBasket);
         
     }
 }

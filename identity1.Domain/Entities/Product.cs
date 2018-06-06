@@ -21,7 +21,12 @@
         [DataType(DataType.Currency)]
         public decimal CostProduct { get; set; }
         public int TypeId { get; set; }
-        public int CharacteristicsId { get; set; }
+        public int? MemberId { get; set; }
+        public int? ColorId { get; set; }
+        public int? DisplayId { get; set; }
+        public int? SizeBodyId { get; set; }
+        public bool? Cellular { get; set; }
+        public bool? TouchBar { get; set; }
         public ICollection<Feedback> Feedback { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<OrderItem> OrderItem { get; set; }

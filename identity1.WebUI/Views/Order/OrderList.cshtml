@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<identity1.Domain.ViewModels.OrderList>
-@{
-    Layout = null;
-}
+
 <table class="table">
     <tr>
         <th>
@@ -23,7 +21,7 @@
     {
         <tr>
             <td>
-                <img src="@item.PathToImage" alt="Alternate Text" />
+                <img src="@item.Logo" alt="Alternate Text" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
