@@ -263,6 +263,7 @@
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\Images\IphoneX.jpg" />
+    <Content Include="Content\Images\error.jpg" />
     <Content Include="Content\index.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\main.css" />
@@ -416,7 +417,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Order\OrderPage.cshtml" />
-    <Content Include="Views\Products\ProductList.cshtml" />
+    <Content Include="Views\Order\OrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

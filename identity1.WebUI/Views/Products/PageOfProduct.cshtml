@@ -11,7 +11,10 @@
     <hr />
     <dl class="dl-horizontal">
         @*Image*@
-
+        @foreach (var x in Model.Images)
+        {
+            <img src="@x.Path" />
+        }
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>

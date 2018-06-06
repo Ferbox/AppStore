@@ -2,7 +2,6 @@
 {
     using System.Diagnostics.CodeAnalysis;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Feedback
     {
