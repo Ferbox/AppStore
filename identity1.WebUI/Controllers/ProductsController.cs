@@ -22,7 +22,7 @@ namespace identity1.Controllers
         {
             var products = repository.GetProductsForCatalog(type);
             return View(products);
-        } //main catalog
+        } 
         public ActionResult PageOfProduct(int id)
         {
             var product = repository.GetProduct(id);
@@ -126,7 +126,7 @@ namespace identity1.Controllers
                     return false;
                 }
             }
-            Session[id.ToString()] = id.ToString();
+            Session.Add(id.ToString(), id);
             return true;
         }
 
@@ -137,7 +137,7 @@ namespace identity1.Controllers
             {
                 productIdInBasket[i] = int.Parse(Session[i].ToString());
             }
-            return View(repository.GetProductForBasket(productIdInBasket));
+            return View( repository.GetProductForBasket(productIdInBasket));
         }
         public ActionResult DeleteFromBasket(int id)
         {

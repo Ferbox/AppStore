@@ -6,7 +6,7 @@
         public string Logo { get; set; }
         public string Title { get; set; }
         public decimal Cost { get; set; }
-        public int Count { get; set; } = 1;
+        public int Qty { get; set; } = 1;
 
     }
 }

@@ -1,4 +1,6 @@
-﻿.product-wrapper {
+﻿
+
+.product-wrapper {
     display: block;
     width: 100%;
     float: left;
@@ -11,10 +13,9 @@
     border-radius: 3px;
     position: relative;
     background: #fff;
-    margin: 0 20px 20px 0;
+    margin: 0 10px 10px 0;
     text-decoration: none;
     color: #474747;
-    z-index: 0;
     height: auto;
 }
 
@@ -45,7 +46,7 @@
 
 .product:hover {
     z-index: 1;
-    text-decoration:none;
+    text-decoration: none;
 }
 
     .product:hover .product-photo img {

@@ -48,10 +48,16 @@ namespace identity1.Domain.Concrete
 
         public IEnumerable<Product> GetProductForBasket(int[] prodInBasket)
         {
-            var products = from p in DbContext.Products
-                           where prodInBasket.Contains(p.ProductId)
-                           select p;
-            return products;
+            for (int i = 0;i < prodInBasket.Length;i++)
+            {
+                foreach (var item in DbContext.Products)
+                {
+                    if (prodInBasket[i] == item.ProductId)
+                    {
+                        yield return item; 
+                    }
+                }
+            }
         }
     }
 }
