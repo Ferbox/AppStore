@@ -16,7 +16,7 @@ td.text {
     width: auto;
 }
 
-a.navbar-fixed-top {
+a {
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
@@ -28,13 +28,13 @@ a.navbar-fixed-top {
     transition: 0.4s ease-in-out;
 }
 
-a.navbar-fixed-top {
+a {
     border-radius: 10px;
     color: white;
     box-shadow: inset 0 -5px 0 #18a3dd;
 }
 
-a.navbar:hover a:visited {
+.container a:hover {
     box-shadow: inset 0 -60px 0 #18a3dd, 2px 2px 3px rgba(0,0,0,0.3);
     color: green;
     text-decoration: none;

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using identity1.Domain.Abstract;
 using identity1.Domain.Concrete;
@@ -30,9 +30,8 @@ namespace GameStore.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IProductsRepository>().To<EFProductsRepository>();
+            //kernel.Bind<IProductsRepository>().To<EFProductsRepository>();
             kernel.Bind<IOrderRepository>().To<EFOrderRepository>();
-            
         }
     }
 }
