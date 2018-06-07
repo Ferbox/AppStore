@@ -1,13 +1,13 @@
 ﻿
-td.text {
-    font-weight: normal;
-    font-size: 30px;
-    text-align: center;
-    color: white;
-    border-spacing: 25px;
-    background-color: black;
-    width: 20%;
-}
+    td.text {
+        font-weight: normal;
+        font-size: 30px;
+        text-align: center;
+        color: white;
+        border-spacing: 25px;
+        background-color: black;
+        width: 20%;
+    }
 
 
 .navbar-fixed-top {

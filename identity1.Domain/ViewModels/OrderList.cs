@@ -1,5 +1,7 @@
 ﻿namespace identity1.Domain.ViewModels
 {
+
+
     public class OrderList
     {
         public int ProductId { get; set; }

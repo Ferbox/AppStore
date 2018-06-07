@@ -31,6 +31,7 @@ namespace identity1.Domain.Concrete
             rosegold = 5
         }
         ApplicationDbContext DbContext = new ApplicationDbContext();
+        
         public IEnumerable<ProductPageInCatalog> GetProductsForCatalog(int type)
         {
             var productlist = from p in DbContext.Products
