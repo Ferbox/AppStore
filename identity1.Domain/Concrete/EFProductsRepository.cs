@@ -44,6 +44,11 @@ namespace identity1.Domain.Concrete
         public Product GetProduct(int id)
         {
             var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
+            IEnumerable<Image> images = DbContext.Images.Where(x => x.ProductId == product.ProductId);
+            foreach (var item in images)
+            {
+                product.Images.Add(item);
+            }
             return product;
         }
 
