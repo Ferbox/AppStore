@@ -45,26 +45,28 @@
                         </span>
                     </div>
                     @if (User.Identity.IsAuthenticated)
-                {
+                    {
                     <div class="product-buttons-wrap">
                         <div class="buttons">
                             <span id="@item.ProductId" class="button to_cart">В корзину</span>
                             <span id="@item.ProductId" class="button">Купить</span>
                         </div>
                     </div>
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     <div class="product-buttons-wrap">
                         <div class="buttons">
                             <span class="button">Войти</span>
                         </div>
                     </div>
-                }
+                    }
             </div>
         </a>
     </li>
-}
+    }
+</div>
+    
 <link href="~/Content/index.css" rel="stylesheet"/>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/index_products.js"></script>
