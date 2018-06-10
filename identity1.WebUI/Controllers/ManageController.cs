@@ -1,16 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using identity1.Domain;
-using identity1.Domain.Entities;
-using identity1.Domain.App_Start;
+using identity1.WebUI.Models;
+using identity1.Common.Identity;
 
-namespace identity1.Controllers
+namespace identity1.WebUI.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using identity1.Domain.Abstract;
-using identity1.Domain.Entities;
-using identity1.Domain.ViewModels;
+using identity1.Common.Entities;
+using identity1.LogicContracts;
+using identity1.WebUI.Models;
 using Microsoft.AspNet.Identity;
 
-namespace identity1.Controllers
+namespace identity1.WebUI.Controllers
 {
     public class OrderController:Controller
     {
-        IOrderRepository repository;
-        public OrderController(IOrderRepository _repository)
+        IOrderLogic repository;
+        public OrderController(IOrderLogic _repository)
         { 
             repository = _repository;
         }

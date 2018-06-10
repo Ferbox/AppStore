@@ -1,0 +1,70 @@
+﻿
+
+
+body {
+    background: #fafafa
+}
+
+.row {
+    width: 960px
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #999;
+    border-image: none;
+    border-style: dotted;
+    border-width: 1px 0 0;
+    clear: both;
+    height: 0;
+    margin: 22px 0 21px;
+}
+
+
+
+
+
+/* sections */
+.section_light {
+    background: #FFF;
+    border-top: 1px dotted #999;
+    border-bottom: 1px dotted #999;
+    padding: 20px 0;
+    clear: both
+}
+
+    .section_light h1 {
+        text-align: center;
+        border-bottom: 1px dotted #999;
+        padding-bottom: 20px;
+        margin: 0 0 20px 0
+    }
+
+
+
+/* END Frontpage sections */
+
+
+
+.panel {
+}
+
+    .panel.callout {
+        background: #FE563B;
+        border: 1px solid #CCC
+    }
+
+        .panel.callout p, .panel.callout h4 {
+            color: #fff
+        }
+
+
+/* gallery menu */
+
+.footer {
+    text-align: center;
+    padding: 50px 0
+}

@@ -6,9 +6,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using identity1.Domain.Entities;
+using identity1.Common.Entities;
 
-namespace identity1.Domain.App_Start
+namespace identity1.Common.App_Start
 {
     public class EmailService:IIdentityMessageService
     {
