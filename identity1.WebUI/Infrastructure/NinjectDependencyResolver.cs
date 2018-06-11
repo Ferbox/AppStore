@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
-using identity1.Domain.Abstract;
-using identity1.Domain.Concrete;
+using identity1.Common.Abstract;
+using identity1.Common.Concrete;
 using Ninject;
 
 namespace GameStore.WebUI.Infrastructure

@@ -3,16 +3,15 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using identity1.Domain;
-using identity1.Domain.Entities;
-using identity1.Domain.App_Start;
+using identity1.Common.EF;
+using identity1.Common.Identity;
 
 namespace identity1
 {
     public partial class Startup
     {
+       
         // Дополнительные сведения о настройке аутентификации см. на странице https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -32,7 +31,7 @@ namespace identity1
                 {
                     // Позволяет приложению проверять метку безопасности при входе пользователя.
                     // Эта функция безопасности используется, когда вы меняете пароль или добавляете внешнее имя входа в свою учетную запись.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, Common.Identity.User>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }

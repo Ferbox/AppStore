@@ -1,31 +1,23 @@
-﻿using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using identity1.Domain.Entities;
-using identity1.Domain.Abstract;
+﻿using System.Web.Mvc;
+using identity1.LogicContracts;
 
-namespace identity1.Controllers
+namespace identity1.WebUI.Controllers
 {
     public class ProductsController:Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        IProductsRepository repository;
-        public ProductsController(IProductsRepository _repository)
+        IProductLogic logic;
+        public ProductsController(IProductLogic _logic)
         {
-            repository = _repository;
+            logic = _logic;
         } 
         public ActionResult Index(int type = 1)
         {
-            var products = repository.GetProductsForCatalog(type);
+            var products = logic.GetProductsForCatalog(type);
             return View(products);
         } 
         public ActionResult PageOfProduct(int id)
         {
-            var product = repository.GetProduct(id);
+            var product = logic.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -137,7 +129,7 @@ namespace identity1.Controllers
             {
                 productIdInBasket[i] = int.Parse(Session[i].ToString());
             }
-            return View( repository.GetProductForBasket(productIdInBasket));
+            return View( logic.GetProductForBasket(productIdInBasket));
         }
         public ActionResult DeleteFromBasket(int id)
         {
@@ -151,13 +143,6 @@ namespace identity1.Controllers
             return RedirectToAction("Basket");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }
