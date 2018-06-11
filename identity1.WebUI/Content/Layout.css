@@ -21,11 +21,11 @@ a {
     color: inherit;
 }
 
-.container {
+/*.container {
     overflow: hidden;
     *zoom: 1;
     margin: 0 20px;
-}
+}*/
 
 .body-content {
     padding-top: 66px;
@@ -71,7 +71,7 @@ a {
     }
 
     .site-container {
-        overflow: hidden;
+      
     }
 
 
@@ -151,5 +151,6 @@ a {
         right: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.6);
+        z-index:1;
     }
 }
