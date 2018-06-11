@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using identity1.Domain.Abstract;
 using identity1.Domain.Entities;
@@ -18,35 +17,31 @@ namespace identity1.Controllers
         // GET: Order
         public ActionResult OrderPage()
         {
-            int[] productFromBasket = new int[Session.Count];
+            int[] orderlist = new int[Session.Count];
             for (int i = 0;i < Session.Count;i++)
             {
-                productFromBasket[i] = int.Parse(Session[i].ToString());
+                orderlist[i] = int.Parse(Session[i].ToString());
             }
-            ViewBag.Products = repository.GetOrderList(productFromBasket);
+            ViewBag.Products = repository.GetOrderList(orderlist);
 
             return View();
         }
         [HttpPost]
-        public ActionResult OrderPage(Order order)
+        public ActionResult OrderPage(Order order, int[] qty)
         {
-
             string id = User.Identity.GetUserId();
-
-            repository.CreateOrder(order , id);
+            int[] orderlist = new int[Session.Count];
+            for (int i = 0;i < Session.Count;i++)
+            {
+                orderlist[i] = int.Parse(Session[i].ToString());
+            }
+            repository.CreateOrder(order , id , orderlist, qty);
             return RedirectToAction("Index","Products");
         }
 
         //Partial view for products list
         public ActionResult OrderList(IEnumerable<OrderList> prod)
         {
-            //int[] productFromBasket = new int[Session.Count];
-            //for (int i = 0;i < Session.Count;i++)
-            //{
-            //    productFromBasket[i] = int.Parse(Session[i].ToString());
-            //}
-            //var products = repository.GetOrderList(productFromBasket);
-
             return View(prod);
         }
     }

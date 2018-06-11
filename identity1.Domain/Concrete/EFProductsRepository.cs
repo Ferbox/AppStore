@@ -31,6 +31,7 @@ namespace identity1.Domain.Concrete
             rosegold = 5
         }
         ApplicationDbContext DbContext = new ApplicationDbContext();
+        
         public IEnumerable<ProductPageInCatalog> GetProductsForCatalog(int type)
         {
             var productlist = from p in DbContext.Products
@@ -43,15 +44,26 @@ namespace identity1.Domain.Concrete
         public Product GetProduct(int id)
         {
             var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
+            IEnumerable<Image> images = DbContext.Images.Where(x => x.ProductId == product.ProductId);
+            foreach (var item in images)
+            {
+                product.Images.Add(item);
+            }
             return product;
         }
 
         public IEnumerable<Product> GetProductForBasket(int[] prodInBasket)
         {
-            var products = from p in DbContext.Products
-                           where prodInBasket.Contains(p.ProductId)
-                           select p;
-            return products;
+            for (int i = 0;i < prodInBasket.Length;i++)
+            {
+                foreach (var item in DbContext.Products)
+                {
+                    if (prodInBasket[i] == item.ProductId)
+                    {
+                        yield return item; 
+                    }
+                }
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-@model IEnumerable<identity1.Domain.Entities.Product>
-
+@model IEnumerable<identity1.Domain.ViewModels.ProductPageInCatalog>
 @{
     ViewBag.Title = "Index";
 }
@@ -19,7 +18,7 @@
                     </div>
                     <div class="product-text">
                         <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                        @*<p>@Html.DisplayFor(modelItem => item.Description)</p>*@
                     </div>
                 </div>
                 <div class="product-details-wrap">
@@ -27,12 +26,12 @@
                         <div class="product-availability">
                             @if (item.CountInStock == 0)
                             {
-                                @:Нет в наличии
-        }
+                                @: Нет в наличии
+            }
                             else
                             {
                                 @:В наличии
-        }
+            }
                         </div>
                         <span class="product-price product-price-old">
                             <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
@@ -46,27 +45,31 @@
                     </div>
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <div class="product-buttons-wrap">
-                        <div class="buttons">
-                            <span id="@item.ProductId" class="button to_cart">В корзину</span>
-                            <span id="@item.ProductId" class="button">Купить</span>
+                        <div class="product-buttons-wrap">
+                            <div class="buttons">
+                                <span id="@item.ProductId" class="button to_cart">В корзину</span>
+                                <span id="@item.ProductId" class="button">Купить</span>
+
+                            </div>
                         </div>
-                    </div>
                     }
                     else
                     {
-                    <div class="product-buttons-wrap">
-                        <div class="buttons">
-                            <span class="button">Войти</span>
+                        <div class="product-buttons-wrap">
+                            <div class="buttons">
+                                <span class="button">Войти</span>
+                            </div>
                         </div>
-                    </div>
                     }
-            </div>
-        </a>
-    </li>
+                    @Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })
+
+                </div>
+            </a>
+
+        </li>
     }
 </div>
-    
-<link href="~/Content/index.css" rel="stylesheet"/>
+
+<link href="~/Content/index.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/index_products.js"></script>

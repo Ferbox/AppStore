@@ -3,7 +3,6 @@
     ViewBag.Title = "Оформление заказа";
     IEnumerable<identity1.Domain.ViewModels.OrderList> prod = ViewBag.Products;
 }
-
 <h2>Состав заказа</h2>
 
 
@@ -21,7 +20,8 @@
             @Html.ValidationMessageFor(model => model.DeliveryAddress, "", new { @class = "text-danger" })
         </div>
     </div>
-    @Html.Partial("OrderList", prod )
+   
+    @Html.Partial("OrderList", prod)
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
