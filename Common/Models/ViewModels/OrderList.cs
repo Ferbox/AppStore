@@ -1,4 +1,4 @@
-﻿namespace identity1.WebUI.Models
+﻿namespace identity1.Common.Models.ViewModels
 {
 
 

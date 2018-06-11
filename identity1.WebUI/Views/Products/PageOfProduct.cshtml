@@ -1,4 +1,4 @@
-﻿@model identity1.Domain.Entities.Product
+﻿@model identity1.Common.Entities.Product
 
 @{
     ViewBag.Title = Model.Title;
@@ -9,6 +9,8 @@
 <!--[if gt IE 8]><!-->
 <!-- ######################## Section ######################## -->
 
+
+
 <section class="section_light">
     <div class="row">
 
@@ -17,7 +19,7 @@
             <div class="six columns image">
 
                 <div class="img_product">
-                    <img src="" alt="Product Image Description">
+                    <img src="@Model.Images.FirstOrDefault(i => i.Name == "logo").Path" alt="Product Image Description">
                 </div>
                 <nav class="img_gallery">
                     @foreach (var item in Model.Images)

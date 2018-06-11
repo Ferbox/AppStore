@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using identity1.WebUI.Models;
+using identity1.Common.Models.ViewModels;
 using identity1.Common.Identity;
 
 namespace identity1.WebUI.Controllers
