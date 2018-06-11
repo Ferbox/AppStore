@@ -5,9 +5,9 @@ namespace identity1.DALContracts
 {
     public interface IProductDao
     {
-        IEnumerable<Product> GetProductsForCatalog(int type);
         Product GetProduct(int id);
-        IEnumerable<Product> GetProductsForCart(int[] idProducts);
+        IEnumerable<Product> GetProducts(int type);
+        IEnumerable<Product> GetProducts(int[] idProducts);
 
     }
 }

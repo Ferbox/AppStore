@@ -14,7 +14,10 @@ namespace identity1.Logic
             orderDao = _orderDao;
         }
 
-        public void CreateOrder(Order order, string id, int[] orderlist, int[] qty) => throw new NotImplementedException();
+        public void CreateOrder(Order order, string id, int[] orderlist, int[] qty)
+        {
+            orderDao.CreateOrder(order, id, orderlist, qty);
+        }
 
         IEnumerable<Order> IOrderLogic.GetOrderList(int[] ProductidFromSession) => throw new NotImplementedException();
     }
