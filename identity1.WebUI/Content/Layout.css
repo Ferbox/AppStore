@@ -1,4 +1,8 @@
-﻿body {
+﻿html {
+    height: 100%;
+}
+
+body {
     font-family: 'Times New Roman', sans-serif;
     font-size: 1em;
     line-height: 1.4;
@@ -55,13 +59,13 @@ a {
     float: left;
 }
 
-    .menu a {
-        padding: 0 10px;
-    }
+.menu a {
+    padding: 0 10px;
+}
 
-        .menu a:hover {
-            color: #c5cae9;
-        }
+.menu a:hover {
+    color: #c5cae9;
+}
 
 /* RESPONSIVE */
 @media only screen and (max-width: 780px) {
@@ -83,12 +87,10 @@ a {
 
     .body-content {
         position: relative;
-        top: 66px;
         right: 0;
         left: 0;
         bottom: 0;
         padding-top: 0;
-        overflow-y: auto;
     }
 
     .header {
@@ -118,6 +120,7 @@ a {
         }
 
     .menu {
+        display: block;
         position: absolute;
         left: 0;
         top: 0;
