@@ -1,4 +1,5 @@
-﻿@{
+﻿@using identity1.Common.Models.Enums
+@{
     Layout = null;
 }
 
@@ -21,19 +22,12 @@
                 <a href="#" class="header__icon" id="header__icon"></a>
                 <a href="#" class="header__logo">Logo</a>
                 <nav class="menu">
-                    <div class="navigation">
-                        @Html.ActionLink("Macbook", "Index", "Products", new { type = 2 }, null)
-                        @Html.ActionLink("iPhone", "Index", "Products", new { type = 1 }, null)
-                        @Html.ActionLink("iPad", "Index", "Products", new { type = 3 }, null)
-                        @Html.ActionLink("Watch", "Index", "Products", new { type = 5 }, null)
-                        @Html.ActionLink("iMac", "Index", "Products", new { type = 4 }, null)
-                        @Html.ActionLink("Accessories", "Index", "Products", new { type = 6 }, null)
-                        @Html.ActionLink("Basket","Basket")
-                    </div>
-                    <div class="navigation_lg">
-                        @Html.Partial("_LoginPartial")
-                    </div>
-
+                    @Html.ActionLink("Macbook", "Index", "Products", new { type = Enums.TypeProduct.laptop }, null)
+                    @Html.ActionLink("iPhone", "Index", "Products", new { type = Enums.TypeProduct.phone }, null)
+                    @Html.ActionLink("iPad", "Index", "Products", new { type = Enums.TypeProduct.tablet }, null)
+                    @Html.ActionLink("Watch", "Index", "Products", new { type = Enums.TypeProduct.watch }, null)
+                    @Html.ActionLink("iMac", "Index", "Products", new { type = Enums.TypeProduct.monoblock }, null)
+                    @Html.ActionLink("Accessories", "Index", "Products", new { type = Enums.TypeProduct.accessories }, null)
                 </nav>
             </header>
             <div class="site-cache" id="site-cache"></div>

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace identity1.WebUI.Models
+namespace identity1.Common.Models.ViewModels
 {
     public class ProductPageInCatalog
     {

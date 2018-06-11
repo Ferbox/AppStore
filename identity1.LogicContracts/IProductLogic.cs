@@ -9,6 +9,6 @@ namespace identity1.LogicContracts
 
         Product GetProduct(int id);
 
-        IEnumerable<Product> GetProductForBasket(int[] prodInBasket);
+        IEnumerable<Product> GetProductForCart(int[] prodInBasket);
     }
 }

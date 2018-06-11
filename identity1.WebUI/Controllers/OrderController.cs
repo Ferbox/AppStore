@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using identity1.Common.Entities;
 using identity1.LogicContracts;
-using identity1.WebUI.Models;
+using identity1.Common.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace identity1.WebUI.Controllers
