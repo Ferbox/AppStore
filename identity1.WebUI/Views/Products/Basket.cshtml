@@ -19,28 +19,29 @@
         </th>
         <th></th>
     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostProduct)
+            </td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostProduct)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Удалить", "DeleteFromBasket", null, new { @class = "delete", @id = item.ProductId })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Удалить", "DeleteFromBasket", null, new { @class = "delete", @id = item.ProductId })
+            </td>
+        </tr>
+    }
 
 </table>
 
-@Html.ActionLink("Оформить заказ", "OrderPage", "Order", null , null)
+@Html.ActionLink("Оформить заказ", "OrderPage", "Order", null, null)
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/basket.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css">

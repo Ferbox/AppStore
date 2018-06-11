@@ -1,6 +1,11 @@
 ﻿@model IEnumerable<identity1.Domain.ViewModels.OrderList>
-
+<style>
+    img {
+        height: 100px;
+    }
+</style>
 <table class="table">
+
     <tr>
         <th>
 
@@ -21,7 +26,9 @@
     {
         <tr>
             <td>
-                <img src="@item.Logo" alt="Alternate Text" />
+                <div class="text-xs-center">
+                    <img src="@item.Logo" class= img-rounded" alt="Responsive image" />
+                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -37,3 +44,4 @@
     }
 
 </table>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css">

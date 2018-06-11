@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-<div id="Catalog">
     <div class="">
         @Html.ActionLink("Create New", "Create")
     </div>
@@ -61,14 +60,15 @@
                             </div>
                         </div>
                     }
-                    @Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })
+                   
 
                 </div>
             </a>
 
         </li>
+        @Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })
     }
-</div>
+
 
 <link href="~/Content/index.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>

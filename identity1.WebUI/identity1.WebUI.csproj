@@ -267,6 +267,8 @@
     <Content Include="Content\Images\IphoneX.jpg" />
     <Content Include="Content\Images\error.jpg" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\login_.css" />
+    <Content Include="Content\Order_Page.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\modernizr.foundation.js" />
     <Content Include="Content\Layout.css" />
@@ -358,6 +360,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\order.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -381,7 +384,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
