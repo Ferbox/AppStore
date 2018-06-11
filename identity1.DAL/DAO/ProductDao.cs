@@ -13,7 +13,7 @@ namespace identity1.DAL.DAO
 
         public IEnumerable<Product> GetProducts(int id)
         {
-            return DbContext.Products.Where(x => x.ProductId == id);
+            return DbContext.Products.Where(x => x.TypeId == id);
         }
 
         public Product GetProduct(int id)

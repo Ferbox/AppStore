@@ -86,13 +86,100 @@
     <Compile Include="Entities\SizeBody.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\Type.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Identity\User.cs" />
     <Compile Include="Identity\IdentityConfig.cs" />
+    <Compile Include="Migrations\201806011958141_update database.cs" />
+    <Compile Include="Migrations\201806011958141_update database.Designer.cs">
+      <DependentUpon>201806011958141_update database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806012055380_Initial.cs" />
+    <Compile Include="Migrations\201806012055380_Initial.Designer.cs">
+      <DependentUpon>201806012055380_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806021631347_update order.cs" />
+    <Compile Include="Migrations\201806021631347_update order.Designer.cs">
+      <DependentUpon>201806021631347_update order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806022012514_Initial1.cs" />
+    <Compile Include="Migrations\201806022012514_Initial1.Designer.cs">
+      <DependentUpon>201806022012514_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806022139058_Initial2.cs" />
+    <Compile Include="Migrations\201806022139058_Initial2.Designer.cs">
+      <DependentUpon>201806022139058_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806030954209_refresh.cs" />
+    <Compile Include="Migrations\201806030954209_refresh.Designer.cs">
+      <DependentUpon>201806030954209_refresh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806031238043_Changeorder.cs" />
+    <Compile Include="Migrations\201806031238043_Changeorder.Designer.cs">
+      <DependentUpon>201806031238043_Changeorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806031320149_Add_OrderItem.cs" />
+    <Compile Include="Migrations\201806031320149_Add_OrderItem.Designer.cs">
+      <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806031525143_Add_DBSet_OrderItem.cs" />
+    <Compile Include="Migrations\201806031525143_Add_DBSet_OrderItem.Designer.cs">
+      <DependentUpon>201806031525143_Add_DBSet_OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041634102_added_characteristics_of_product.cs" />
+    <Compile Include="Migrations\201806041634102_added_characteristics_of_product.Designer.cs">
+      <DependentUpon>201806041634102_added_characteristics_of_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806041642412_added_relation_between_prod_and_charak.cs" />
+    <Compile Include="Migrations\201806041642412_added_relation_between_prod_and_charak.Designer.cs">
+      <DependentUpon>201806041642412_added_relation_between_prod_and_charak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806050534212_edit product.cs" />
+    <Compile Include="Migrations\201806050534212_edit product.Designer.cs">
+      <DependentUpon>201806050534212_edit product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806011958141_update database.resx">
+      <DependentUpon>201806011958141_update database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806012055380_Initial.resx">
+      <DependentUpon>201806012055380_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806021631347_update order.resx">
+      <DependentUpon>201806021631347_update order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022012514_Initial1.resx">
+      <DependentUpon>201806022012514_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806022139058_Initial2.resx">
+      <DependentUpon>201806022139058_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806030954209_refresh.resx">
+      <DependentUpon>201806030954209_refresh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031238043_Changeorder.resx">
+      <DependentUpon>201806031238043_Changeorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031320149_Add_OrderItem.resx">
+      <DependentUpon>201806031320149_Add_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806031525143_Add_DBSet_OrderItem.resx">
+      <DependentUpon>201806031525143_Add_DBSet_OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041634102_added_characteristics_of_product.resx">
+      <DependentUpon>201806041634102_added_characteristics_of_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806041642412_added_relation_between_prod_and_charak.resx">
+      <DependentUpon>201806041642412_added_relation_between_prod_and_charak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806050534212_edit product.resx">
+      <DependentUpon>201806050534212_edit product.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

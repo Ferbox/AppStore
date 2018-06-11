@@ -1,4 +1,4 @@
-namespace identity1.DAL.Migrations
+namespace identity1.Common.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

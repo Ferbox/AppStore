@@ -1,9 +1,9 @@
-namespace identity1.DAL.Migrations
+namespace identity1.Common.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Add_DBSet_OrderItem : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
