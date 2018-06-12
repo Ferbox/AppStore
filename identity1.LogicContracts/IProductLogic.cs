@@ -8,5 +8,6 @@ namespace identity1.LogicContracts
         Product GetProduct(int id);
         IEnumerable<Product> GetProducts(int type);
         IEnumerable<Product> GetProducts(int[] prodInBasket);
+        void CreateOrder(Order order, string id, int[] orderlist, int[] qty);
     }
 }

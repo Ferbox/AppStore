@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using identity1.Common.Entities;
 using identity1.LogicContracts;
+using Microsoft.AspNet.Identity;
 
 namespace identity1.WebUI.Controllers
 {
@@ -71,7 +74,34 @@ namespace identity1.WebUI.Controllers
             }
             return RedirectToAction("Basket");
         }
+        public ActionResult OrderPage()
+        {
+            int[] orderlist = new int[Session.Count];
+            for (int i = 0;i < Session.Count;i++)
+            {
+                orderlist[i] = int.Parse(Session[i].ToString());
+            }
+            ViewBag.Products = logic.GetProducts(orderlist);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult OrderPage(Order order, int[] qty)
+        {
+            string id = User.Identity.GetUserId();
+            int[] orderlist = new int[Session.Count];
+            for (int i = 0;i < Session.Count;i++)
+            {
+                orderlist[i] = int.Parse(Session[i].ToString());
+            }
+            logic.CreateOrder(order, id, orderlist, qty);
+            return RedirectToAction("Index");
+        }
 
+        //Partial view for products list
+        public ActionResult OrderList(IEnumerable<Product> prod)
+        {
+            return View(prod);
+        }
 
     }
 }

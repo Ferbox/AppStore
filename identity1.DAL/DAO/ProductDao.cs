@@ -25,8 +25,18 @@ namespace identity1.DAL.DAO
         {
             foreach (int id in idProducts)
             {
-                yield return DbContext.Products.FirstOrDefault(p => p.ProductId == id);
+                yield return DbContext.Products.Include(x => x.Images).FirstOrDefault(p => p.ProductId == id);
             }
+        }
+        public void CreateOrder(Order order, string id, int[] orderlist, int[] qty)
+        {
+            order.UserId = id;
+            for (int i = 0;i < orderlist.Length;i++)
+            {
+                DbContext.OrderItem.Add(new OrderItem { OrderId = order.OrderId, ProductId = orderlist[i], Quantity = qty[i] });
+            }
+            DbContext.Orders.Add(order);
+            DbContext.SaveChanges();
         }
     }
 }

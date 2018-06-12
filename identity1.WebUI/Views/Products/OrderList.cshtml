@@ -1,4 +1,4 @@
-﻿@model IEnumerable<identity1.Common.Models.ViewModels.OrderList>
+﻿@model IEnumerable<identity1.Common.Entities.Product>
 
 <table class="table">
     <tr>
@@ -9,10 +9,10 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cost)
+            @Html.DisplayNameFor(model => model.CostProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Qty)
+            Qty
         </th>
         <th></th>
     </tr>
@@ -21,13 +21,13 @@
     {
         <tr>
             <td>
-                <img src="@item.Logo" alt="Alternate Text" />
+                <img src="@item.Images.FirstOrDefault(x => x.Name == "logo").Path" alt="Alternate Text" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cost)
+                @Html.DisplayFor(modelItem => item.CostProduct)
             </td>
             <td>
                 <input type="text" name="qty" value="1" />

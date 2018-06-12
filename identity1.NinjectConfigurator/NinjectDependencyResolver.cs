@@ -31,8 +31,6 @@ namespace identity1.NinjectConfigurator
         private void AddBindings()
         {
             kernel.Bind<IProductLogic>().To<ProductLogic>().InSingletonScope();
-            kernel.Bind<IOrderLogic>().To<OrderLogic>().InSingletonScope();
-            kernel.Bind<IOrderDao>().To<OrderDao>().InSingletonScope();
             kernel.Bind<IProductDao>().To<ProductsDao>().InSingletonScope();
 
         }

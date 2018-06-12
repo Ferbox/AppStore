@@ -22,7 +22,8 @@
             spacegray = 2,
             silver = 3,
             rose = 4,
-            rosegold = 5
+            rosegold = 5,
+            gold = 6
         }
         public enum TypeProduct
         {
@@ -32,6 +33,31 @@
             monoblock = 4,
             watch = 5,
             accessories = 6
+        }
+        public enum Displays
+        {
+            ipad = 1,
+            ipadPro_10 = 2,
+            ipadPro_13 = 3,
+            imac_21 = 4,
+            imac_27 = 5,
+            macbook = 6,
+            macAirOrPro = 7,
+            macPro = 8,
+            iphoneX = 9,
+            iphone6s78 = 10,
+            iphone6s78Plus = 11,
+            iphoneSE = 12
+
+        }
+        public enum Status
+        {
+            processing = 1,
+            ordering = 2,
+            inTransit = 3,
+            delivered = 4,
+            completed = 5,
+            canceled = 6
         }
     }
 }

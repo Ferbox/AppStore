@@ -32,5 +32,9 @@ namespace identity1.Logic
             IEnumerable<Product> products = productDao.GetProducts(type);
             return products;
         }
+        public void CreateOrder(Order order, string id, int[] orderlist, int[] qty)
+        {
+            productDao.CreateOrder(order, id, orderlist, qty);
+        }
     }
 }
