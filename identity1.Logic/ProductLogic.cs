@@ -22,16 +22,14 @@ namespace identity1.Logic
             var product = productDao.GetProduct(id);
             return product;
         }
-        public IEnumerable<Product> GetProductForCart(int[] prodInCart)
+        public IEnumerable<Product> GetProducts(int[] prodInCart)
         {
-            var products = productDao.GetProductsForCart(prodInCart);
+            var products = productDao.GetProducts(prodInCart);
             return products;
         }
-
-
-        IEnumerable<Product> IProductLogic.GetProductsForCatalog(int type)
+        IEnumerable<Product> IProductLogic.GetProducts(int type)
         {
-            IEnumerable<Product> products = productDao.GetProductsForCatalog(type);
+            IEnumerable<Product> products = productDao.GetProducts(type);
             return products;
         }
     }

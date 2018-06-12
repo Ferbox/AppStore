@@ -4,7 +4,7 @@
 }
 
     <div class="">
-        @Html.ActionLink("Create New", "Create", "Products")
+        @Html.ActionLink("Basket", "Basket")
     </div>
     @foreach (var item in Model)
     {
@@ -60,13 +60,12 @@
                             </div>
                         </div>
                     }
-                   
+                    @*@Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })*@
 
                 </div>
             </a>
 
         </li>
-        @Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })
     }
 
 

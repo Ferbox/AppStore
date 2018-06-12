@@ -12,25 +12,21 @@ namespace identity1.DAL.DAO
 
         private ApplicationDbContext DbContext = new ApplicationDbContext();
 
-        public IEnumerable<Product> GetProductsForCatalog(int type)
-        {
-            return DbContext.Products.Where(x => x.TypeId == type).Include(x => x.Images).ToList();
-        }
-
         public Product GetProduct(int id)
         {
             var product = DbContext.Products.Include(p => p.Images).FirstOrDefault(x => x.ProductId == id);
             return product;
         }
-
-        public IEnumerable<Product> GetProductsForCart(int[] idProducts)
+        public IEnumerable<Product> GetProducts(int type)
         {
-            List<Product> products = new List<Product>();
-            for (int i = 0;i < idProducts.Length;i++)
+            return DbContext.Products.Where(x => x.TypeId == type).Include(x => x.Images).ToList();
+        }
+        public IEnumerable<Product> GetProducts(int[] idProducts)
+        {
+            foreach (int id in idProducts)
             {
-                products.Add(DbContext.Products.FirstOrDefault(p => p.ProductId == idProducts[i]));
+                yield return DbContext.Products.FirstOrDefault(p => p.ProductId == id);
             }
-            return products;
         }
     }
 }

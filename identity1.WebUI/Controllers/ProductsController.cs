@@ -10,12 +10,19 @@ namespace identity1.WebUI.Controllers
         public ProductsController(IProductLogic _logic)
         {
             logic = _logic;
-        } 
+        }
         public ActionResult Index(int type = 1)
         {
-            var products = logic.GetProductsForCatalog(type);
-            return View(products);
-        } 
+            try
+            {
+                var products = logic.GetProducts(type);
+                return View(products);
+            }
+            catch (NullReferenceException)
+            {
+                return HttpNotFound();
+            }
+        }
         public ActionResult PageOfProduct(int id)
         {
             try
@@ -27,9 +34,9 @@ namespace identity1.WebUI.Controllers
             {
                 return HttpNotFound();
             }
-        } 
-        
-        
+        }
+
+
         public bool AddToBAsket(int id)
         {
             for (int i = 0;i < Session.Count;i++)
@@ -51,7 +58,7 @@ namespace identity1.WebUI.Controllers
             {
                 productIdInBasket[i] = int.Parse(Session[i].ToString());
             }
-            return View( logic.GetProductForCart(productIdInBasket));
+            return View(logic.GetProducts(productIdInBasket));
         }
         public ActionResult DeleteFromBasket(int id)
         {
@@ -65,7 +72,7 @@ namespace identity1.WebUI.Controllers
             return RedirectToAction("Basket");
         }
 
-       
+
     }
 }
 
