@@ -20,7 +20,6 @@ namespace identity1.DAL.DAO
         public IEnumerable<Product> GetProducts(int type)
         {
             var pr = DbContext.Products.GroupBy(p => p.Title).Select(y => y.FirstOrDefault());
-
             return pr;
             
         }

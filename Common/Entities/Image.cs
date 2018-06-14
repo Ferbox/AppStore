@@ -1,11 +1,13 @@
-﻿namespace identity1.Common.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace identity1.Common.Entities
 {
-    public partial class Image
+    public class Image
     {
-        public int ImageId { get; set; }
-        public string Name { get; set; }
-        public string Path { get; set; } = "/Content/Images/error.jpg";
-        public int? ProductId { get; set; }
-        public int? FeedbackId { get; set; }
+        [Key, Column(Order = 1)]
+        public int ImageOfProductId { get; set; }
+        [Key, Column(Order = 2)]
+        public int ProductId { get; set; }
     }
 }

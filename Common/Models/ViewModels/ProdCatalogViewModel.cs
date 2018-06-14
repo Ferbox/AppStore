@@ -7,6 +7,5 @@
         public string Logo { get; set; }
         public decimal MinCost { get; set; }
         public decimal MaxCost { get; set; }
-
     }
 }

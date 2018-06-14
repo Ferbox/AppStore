@@ -8,7 +8,7 @@
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Feedback()
         {
-            this.Image = new HashSet<Image>();
+            this.Images = new HashSet<ImageofFeedback>();
         }
 
         public int FeedbackId { get; set; }
@@ -16,6 +16,6 @@
 
         public int ProductId { get; set; }
         public string UserId { get; set; }
-        public ICollection<Image> Image { get; set; }
+        public ICollection<ImageofFeedback> Images { get; set; }
     }
 }

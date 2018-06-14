@@ -121,7 +121,7 @@ namespace identity1.WebUI.Controllers
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product ,IEnumerable<Image> image, string[] charak)
+        public async Task<ActionResult> Create(Product product ,IEnumerable<ImageOfProduct> image, string[] charak)
         {
             if (ModelState.IsValid)
             {
