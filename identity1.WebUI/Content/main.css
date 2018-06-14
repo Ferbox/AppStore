@@ -1,56 +1,17 @@
-﻿html {
-    height: 100%;
+﻿.all {
+   height:100%
 }
-
-td.text {
-    font-weight: normal;
-    font-size: 30px;
-    text-align: center;
-    color: white;
-    border-spacing: 25px;
-    background-color: black;
-    width: 20%;
-}
-
-
-.navbar-fixed-top {
-    background-color: black;
-    margin: auto;
-    width: auto;
-}
-
-a {
-    display: inline-block;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 15px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    transition: 0.4s ease-in-out;
-}
-
-a {
-    border-radius: 10px;
-    color: white;
-    box-shadow: inset 0 -5px 0 #18a3dd;
-}
-
-.container a:hover {
-    box-shadow: inset 0 -60px 0 #18a3dd, 2px 2px 3px rgba(0,0,0,0.3);
-    color: green;
-    text-decoration: none;
-}
-
-
 #slider { /*положение слайдера*/
     position: relative;
     text-align: center;
+    top: 1px;
+  
 }
-
+.arrow {
+    margin:5% 0;
+}
 #slider { /*центровка слайдера*/
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 #slides article { /*все изображения справа друг от доруга*/
@@ -60,7 +21,7 @@ a {
 
 #slides .image { /*устанавливает общий размер блока с изображениями*/
     width: 500%;
-    /*line-height: 0;*/
+    line-height: 0;
 }
 
 #overflow { /*сркывает все, что находится за пределами этого блока*/
@@ -68,53 +29,24 @@ a {
     overflow: hidden;
 }
 
-
-
 article img { /*размер изображений слайдера*/
     width: 100%;
 }
 
-.image article {
-    position: relative; /*задает относительное позиционирование нужное для абсолютных*/
-}
-
-.text_img {
-    position: absolute;
-    top: 450px;
-    transition: top 0.4s ease-in-out;
-    background-color: black;
-    width: 100%;
-    height: 1000px;
-    opacity: 0.7;
-    color: white;
-}
-
-    .text_img p {
-        margin: auto;
-        text-align: left;
-        margin: 20px;
-    }
-
-.image article:hover .text_img {
-    top: 280px;
-    color: white;
-}
-
-
 #desktop:checked ~ #slider { /*размер всего слайдера*/
-    max-width: 960px; /*максимальнная длинна*/
+    max-width: 100%; /*максимальнная длинна*/
 }
 
 /*настройка переключения и положения для левой стрелки*/
 /*если свич1-5 активны, то идет обращение к лейблу из блока с id контролс*/
+#switch1:checked ~ #controls label:nth-child(5),
 #switch2:checked ~ #controls label:nth-child(1),
 #switch3:checked ~ #controls label:nth-child(2),
 #switch4:checked ~ #controls label:nth-child(3),
-#switch1:checked ~ #controls label:nth-child(5),
 #switch5:checked ~ #controls label:nth-child(4) {
-    background: url('/Content/Images/prev.png');
+    background: url('/Content/Images/prev.png') no-repeat; /*заливка фона картинкой без повторений*/
     float: left;
-    margin: 0 0 0 -84px; /*сдвиг влево*/
+    margin: 0 0 50px 0; /*сдвиг влево*/
     display: block;
     height: 68px;
     width: 68px;
@@ -126,9 +58,9 @@ article img { /*размер изображений слайдера*/
 #switch3:checked ~ #controls label:nth-child(4),
 #switch4:checked ~ #controls label:nth-child(5),
 #switch5:checked ~ #controls label:nth-child(1) {
-    background: url('/Content/Images/next.png') no-repeat;
+    background: url('/Content/Images/next.png') no-repeat; /*заливка фона картинкой без повторений*/
     float: right;
-    margin: 0 -84px 0 0; /*сдвиг вправо*/
+    margin: 0 0 0 0; /*сдвиг вправо*/
     display: block;
     height: 68px;
     width: 68px;
@@ -142,13 +74,6 @@ label, a { /*при наведении на стрелки или переклю
     display: none;
 }
 
-.all {
-    margin-top: 50px;
-}
-
-body {
-    background-color: gray;
-}
 /*позиция изображения при активации переключателя*/
 #switch1:checked ~ #slides .image {
     margin-left: 0;
@@ -185,7 +110,7 @@ body {
 }
 
 #active { /*расположение блока с переключателями*/
-    margin: 23% 0 0;
+    margin: 20% 0 0;
     text-align: center;
 }
 

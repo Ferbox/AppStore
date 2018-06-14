@@ -1,72 +1,73 @@
 ﻿
-@model IEnumerable<identity1.Common.Entities.Product>
-@{
-    ViewBag.Title = "Index";
-}
-<div class="">
-    @Html.ActionLink("Basket", "Basket")
-</div>
-<div class="">
-    @Html.ActionLink("Create", "Create")
-</div>
-<ul class="products clearfix">
-    @foreach (var item in Model)
-    {
-        <li class="product-wrapper">
-            <a href="" class="product">
-                <div class="product-main">
-                    <div class="product-photo">
-                        <img src="~/Content/Images/IphoneX.jpg" />
-                        <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
-                    </div>
-                </div>
-                <div class="product-details-wrap">
-                    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                    <div class="product-detail-wrap">
-                        <div class="product-availability">
-                            @if (item.CountInStock == 0)
-                            {
-                                @: Нет в наличии
-                            }
-                            else
-                            {
-                                @:В наличии
-                            }
-                        </div>
-                        <span class="product-price product-price-old">
-                            <small>Старая цена:</small><b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
-                            <small>$</small>
-                        </span>
-                        <span class="product-price">
-                            <small>Новая цена</small>
-
-                            <small>899$</small>
-                        </span>
-                    </div>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="product-buttons-wrap">
-                            <div class="buttons">
-                                <span id="@item.ProductId" class="button to_cart">В корзину</span>
-                                <span id="@item.ProductId" class="button">Купить</span>
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="product-buttons-wrap">
-                            <div class="buttons">
-                                <span class="button">Войти</span>
-                            </div>
-                        </div>
-                    }
-                    @*@Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })*@
-                </div>
-            </a>
-        </li>
+    @model IEnumerable<identity1.Common.Entities.Product>
+    @{
+        ViewBag.Title = "Index";
     }
-</ul>
-<script>
+
+
+    <ul class="products clearfix">
+        @foreach (var item in Model)
+        {
+            <li class="product-wrapper">
+                <a href="" class="product">
+                    <div class="product-main">
+                        <div class="product-photo">
+                            <img src="~/Content/Images/IphoneX.jpg" />
+                            <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
+                        </div>
+
+                    </div>
+                    <div class="product-details-wrap">
+                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                        <div class="product-detail-wrap">
+                            <div class="product-availability">
+                                @if (item.CountInStock == 0)
+                                {
+                                    @: Нет в наличии
+            }
+                                else
+                                {
+                                    @:В наличии
+            }
+                            </div>
+                            <span class="product-price product-price-old">
+                                <small>Старая цена:</small><b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
+                                <small>$</small>
+
+                            </span>
+                            <span class="product-price"><small>Новая цена</small>
+                                
+                                <small>899$</small>
+                            </span>
+                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                {
+                            <div class="product-buttons-wrap">
+                                <div class="buttons">
+                                    <span id="@item.ProductId" class="button to_cart">В корзину</span>
+                                    <span id="@item.ProductId" class="button">Купить</span>
+
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="product-buttons-wrap">
+                                <div class="buttons">
+                                    <span class="button">Войти</span>
+                                </div>
+                            </div>
+                        }
+                        @*@Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })*@
+
+                    </div>
+                </a>
+
+            </li>
+        }
+    </ul>
+
+    <script>
         $(document).ready(function () {
             $('.layout-buttons span').click(function () {
                 var $elem = $(this);
@@ -76,6 +77,6 @@
                 $productList.toggleClass('table-layout');
             });
         });</script>
-<link href="~/Content/index.css" rel="stylesheet" />
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/index_products.js"></script>
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/index_products.js"></script>

@@ -27,11 +27,6 @@
             <div class="six columns">
                 <div class="panel">
                     <h3>@Model.Title</h3>
-                    
-                @if (Model.TypeId == (int)Enums.TypeProduct.phone)
-                {
-
-
                     <h5>Память</h5>
                     <form name="product_list" action="#">
                         <select name="print">
@@ -39,27 +34,18 @@
                             <option value="2900">64Gb</option>
                             <option value="1600">128Gb</option>
                         </select>
-                    </form>
-
-
-                    <h5>Color</h5>
-                    <form>
+                        </form>
+                        <h5>Color</h5>
                         <select name="print">
                             <option value="1100">Black</option>
                             <option value="2900">White</option>
                             <option value="1600">Pink</option>
                         </select>
-                    </form>
-                }
-                else if (Model.TypeId == (int)Enums.TypeProduct.tablet)
-                {
-
-                }
                         <input name="unit_price" id="unit_price" value="340.00" type="hidden">
                         <input value="271" name="sales_price" id="total_item" type="hidden">
                         <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>
                         <a href="#" class="green">Add to Busket</a>
-
+                    </form>
                 </div> <!-- end panel -->
             </div>
         </div><!-- end row -->

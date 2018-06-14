@@ -20,12 +20,14 @@
     list-style: none;
     margin: 0 -20px 0 20px;
     padding: 0;
+    height:100%;
 }
 
 .product-photo {
     position: relative;
     padding-bottom: 100%;
     overflow: hidden;
+
 }
 
     .product-photo img {
@@ -44,6 +46,7 @@
 .product:hover {
     z-index: 1;
     text-decoration: none;
+    
 }
 
     .product:hover .product-photo img {
@@ -171,16 +174,13 @@ b {
     cursor: pointer;
     text-decoration: none;
 }
-
 .table-layout .product-preview {
     width: 70%;
 }
-
 @media only screen and (min-width: 470px) {
     .product-wrapper {
         width: 49.5%;
     }
-
     .table-layout .product-preview {
         width: 60%;
     }
@@ -190,7 +190,6 @@ b {
     .product-wrapper {
         width: 33%;
     }
-
     .table-layout .product-main {
         width: 70%;
     }
@@ -199,13 +198,12 @@ b {
         width: 30%;
     }
 
-    .table-layout .product-photo {
+   .table-layout .product-photo {
         width: 30%;
         padding-bottom: 50%;
         margin: 20px;
         border-radius: 3px;
     }
-
     .table-layout .product-preview {
         width: 40%;
     }
@@ -215,15 +213,12 @@ b {
     .product-wrapper {
         width: 24.5%;
     }
-
     .table-layout .product-main {
         width: 80%;
     }
-
     .table-layout .product-details-wrap {
         width: 20%;
     }
-
     .table-layout .product-preview {
         width: 40%;
     }
@@ -236,6 +231,7 @@ b {
 
 .table-layout .product {
     overflow: hidden;
+
 }
 
 .table-layout .product-main {
@@ -252,6 +248,7 @@ b {
 }
 
 .table-layout .product p {
+    
     height: auto;
     margin-bottom: 20px;
 }
@@ -274,19 +271,20 @@ b {
 
 .table-layout .product-detail-wrap {
     border: 1px solid #3f51b5;
-    width: 50%;
-    margin: auto;
+    width:50%;
+    margin:auto;
 }
-
 .table-layout .product-details-wrap {
     float: left;
-    width: 50%;
+    width:50%;
     box-sizing: border-box;
     padding: 20px;
     text-align: center;
+    
 }
 
 .table-layout .product-price {
+    
     display: block;
     margin-bottom: .3em;
 }
@@ -296,8 +294,8 @@ b {
     visibility: visible;
     opacity: 1;
     transform: scaleY(1);
-    width: 50%;
-    margin: auto;
+    width:50%;
+    margin:auto;
 }
 
 .table-layout .buttons {
