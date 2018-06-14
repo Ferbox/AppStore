@@ -11,6 +11,10 @@ namespace identity1.WebUI.Controllers
         {
             logic = _logic;
         }
+        public ActionResult Main()
+        {
+            return View();
+        }
         public ActionResult Index(int type = 1)
         {
             try
