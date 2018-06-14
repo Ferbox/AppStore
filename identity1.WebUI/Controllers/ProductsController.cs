@@ -126,7 +126,7 @@ namespace identity1.WebUI.Controllers
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product , IEnumerable<HttpPostedFileBase> files, string[] charak)
+        public async Task<ActionResult> Create(Product product , string[] charak, IEnumerable<HttpPostedFileBase> files)
         {
             foreach (var file in files)
             {

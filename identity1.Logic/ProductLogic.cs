@@ -6,6 +6,7 @@ using identity1.DALContracts;
 using identity1.LogicContracts;
 using identity1.Common.Models.ViewModels;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace identity1.Logic
 {
@@ -37,7 +38,7 @@ namespace identity1.Logic
             productDao.CreateOrder(order, id, orderlist, qty);
         }
 
-        public void CreateProduct(Product product, string[] charak)
+        public void CreateProduct(Product product, string[] charak, string[] files)
         {
 
 
