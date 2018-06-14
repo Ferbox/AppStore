@@ -222,6 +222,9 @@ b {
     .table-layout .product-preview {
         width: 40%;
     }
+    .table-layout .product-wrapper {
+    margin: 0 20px 0 0;
+    }
 }
 /*TABLE LAYOUT*/
 

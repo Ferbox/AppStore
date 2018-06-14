@@ -19,7 +19,8 @@ namespace identity1.DAL.DAO
         }
         public IEnumerable<Product> GetProducts(int type)
         {
-            return DbContext.Products.Where(x => x.TypeId == type)/*.Include(x => x.Images)*/.ToList();
+            var pr = DbContext.Products.GroupBy(p => p.Title).Select(y => y.FirstOrDefault());
+            return pr;
         }
         public IEnumerable<Product> GetProducts(int[] idProducts)
         {
