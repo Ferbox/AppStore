@@ -14,7 +14,9 @@
             _64gb = 3,
             _128gb = 4,
             _256gb = 5,
-            _512gb = 6
+            _512gb = 6,
+            _1000gb = 7,
+            _2000gb = 8,
         }
         public enum Color
         {
@@ -23,7 +25,9 @@
             silver = 3,
             rose = 4,
             rosegold = 5,
-            gold = 6
+            gold = 6,
+            jetblack = 7,
+            black = 8
         }
         public enum TypeProduct
         {
@@ -47,7 +51,8 @@
             iphoneX = 9,
             iphone6s78 = 10,
             iphone6s78Plus = 11,
-            iphoneSE = 12
+            iphoneSE = 12,
+            ipadmini = 14
 
         }
         public enum Status

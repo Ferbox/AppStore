@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using identity1.Common.Entities;
 using identity1.Common.Models.Enums;
@@ -121,8 +122,12 @@ namespace identity1.WebUI.Controllers
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product ,IEnumerable<ImageOfProduct> image, string[] charak)
+        public async Task<ActionResult> Create(Product product , IEnumerable<HttpPostedFileBase> files, string[] charak)
         {
+            foreach (var file in files)
+            {
+                file.SaveAs(Server.MapPath("~/Content/Images/" + file.FileName));
+            }
             if (ModelState.IsValid)
             {
                 logic.CreateProduct(product, charak);

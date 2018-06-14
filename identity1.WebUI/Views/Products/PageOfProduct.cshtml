@@ -31,7 +31,7 @@
                 @if (Model.TypeId == (int)Enums.TypeProduct.phone)
                 {
 
-                }
+
                     <h5>Память</h5>
                     <form name="product_list" action="#">
                         <select name="print">
@@ -50,7 +50,11 @@
                             <option value="1600">Pink</option>
                         </select>
                     </form>
+                }
+                else if (Model.TypeId == (int)Enums.TypeProduct.tablet)
+                {
 
+                }
                         <input name="unit_price" id="unit_price" value="340.00" type="hidden">
                         <input value="271" name="sales_price" id="total_item" type="hidden">
                         <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>

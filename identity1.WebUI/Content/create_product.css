@@ -1,10 +1,7 @@
-﻿#member,#display, #color, #size  {
+﻿.option  {
 display:none;
 }
-#memberL, #displayL, #colorL, #sizeL {
-    display: none;
-}
 body {
-color : white;
-background: black;
+    color : white;
+    background: gray;
 }
