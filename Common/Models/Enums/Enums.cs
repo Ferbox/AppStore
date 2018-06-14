@@ -59,5 +59,15 @@
             completed = 5,
             canceled = 6
         }
+        public enum Charakteristik
+        {
+            type = 1,
+            member = 2,
+            color = 3,
+            display = 4,
+            sizebody = 5,
+            cellular = 6,
+            touchbar = 7
+        }
     }
 }

@@ -1,4 +1,8 @@
-﻿body {
+﻿html {
+    height: 100%;
+}
+
+body {
     font-family: 'Times New Roman', sans-serif;
     font-size: 1em;
     line-height: 1.4;
@@ -7,20 +11,22 @@
     padding: 0;
 }
 
+/*NAVIGATION*/
 
-
-
+.navbar-right {
+    display: inline-block;
+}
 
 a {
     text-decoration: none;
     color: inherit;
 }
 
-.container {
+/*.container {
     overflow: hidden;
     *zoom: 1;
     margin: 0 20px;
-}
+}*/
 
 .body-content {
     padding-top: 66px;
@@ -58,15 +64,17 @@ a {
             color: #c5cae9;
         }
 
+
+
+
 /* RESPONSIVE */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 780px) {
     .site-pusher,
-    .site-container {
+    {
         height: 100%;
     }
 
     .site-container {
-        overflow: hidden;
     }
 
 
@@ -78,12 +86,10 @@ a {
 
     .body-content {
         position: relative;
-        top: 66px;
         right: 0;
         left: 0;
         bottom: 0;
         padding-top: 0;
-        overflow-y: auto;
     }
 
     .header {
@@ -113,6 +119,7 @@ a {
         }
 
     .menu {
+        display: block;
         position: absolute;
         left: 0;
         top: 0;
@@ -122,6 +129,8 @@ a {
         -webkit-transform: translateX(-200px);
         transform: translateX(-200px);
     }
+
+
 
         .menu a {
             display: block;
@@ -134,14 +143,28 @@ a {
     .with--sidebar .site-pusher {
         -webkit-transform: translateX(200px);
         transform: translateX(200px);
-    }
-
-    .with--sidebar .site-cache {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
         background-color: rgba(0, 0, 0, 0.6);
     }
+}
+
+/*Up*/
+#toTop {
+    width: 100px;
+    background: #f7f7f7;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 10px; /* отступ кнопки от нижнего края страницы*/
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    color: #333;
+    font-family: verdana;
+    font-size: 11px;
+    background: transparent;
+    z-index: 10000;
+}
+
+.up {
+    width: 70px;
 }

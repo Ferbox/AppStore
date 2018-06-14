@@ -4,22 +4,25 @@ using identity1.Common.Entities;
 using identity1.DALContracts;
 using identity1.Common.EF;
 using System.Data.Entity;
+using System.Threading.Tasks;
+using System;
 
 namespace identity1.DAL.DAO
 {
     public class ProductsDao:IProductDao
     {
-
         private ApplicationDbContext DbContext = new ApplicationDbContext();
-
-        public Product GetProduct(int id)
+        public async Task<Product> GetProduct(int id)
         {
-            var product = DbContext.Products.Include(p => p.Images).FirstOrDefault(x => x.ProductId == id);
+            var product = await DbContext.Products.Include(p => p.Images).FirstOrDefaultAsync(x => x.ProductId == id);
             return product;
         }
         public IEnumerable<Product> GetProducts(int type)
         {
-            return DbContext.Products.Where(x => x.TypeId == type).Include(x => x.Images).ToList();
+            var pr = DbContext.Products.GroupBy(p => p.Title).Select(y => y.FirstOrDefault());
+
+            return pr;
+            
         }
         public IEnumerable<Product> GetProducts(int[] idProducts)
         {
@@ -38,6 +41,8 @@ namespace identity1.DAL.DAO
             DbContext.Orders.Add(order);
             DbContext.SaveChanges();
         }
+
+
     }
 }
 

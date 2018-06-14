@@ -1,46 +1,43 @@
+﻿
 @model IEnumerable<identity1.Common.Entities.Product>
 @{
     ViewBag.Title = "Index";
 }
-
-<div id="Catalog">
-    <div class="">
-        @Html.ActionLink("Basket", "Basket")
-    </div>
+<div class="">
+    @Html.ActionLink("Basket", "Basket")
+</div>
+<ul class="products clearfix">
     @foreach (var item in Model)
     {
         <li class="product-wrapper">
             <a href="" class="product">
                 <div class="product-main">
                     <div class="product-photo">
-                        <img src="@item.Images.FirstOrDefault( x => x.Name == "logo").Path" alt="Image"/>
+                        <img src="~/Content/Images/IphoneX.jpg" />
                         <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
-                    </div>
-                    <div class="product-text">
-                        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
-                        @*<p>@Html.DisplayFor(modelItem => item.Description)</p>*@
                     </div>
                 </div>
                 <div class="product-details-wrap">
-                    <div class="product-details-wrap">
+                    <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                    <div class="product-detail-wrap">
                         <div class="product-availability">
                             @if (item.CountInStock == 0)
                             {
                                 @: Нет в наличии
-            }
+                            }
                             else
                             {
                                 @:В наличии
-            }
+                            }
                         </div>
                         <span class="product-price product-price-old">
-                            <b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
+                            <small>Старая цена:</small><b>@Html.DisplayFor(modelItem => item.CostProduct)</b>
                             <small>$</small>
-
                         </span>
                         <span class="product-price">
-                            <b>899</b>
-                            <small>$</small>
+                            <small>Новая цена</small>
+
+                            <small>899$</small>
                         </span>
                     </div>
                     @if (User.Identity.IsAuthenticated)
@@ -49,7 +46,6 @@
                             <div class="buttons">
                                 <span id="@item.ProductId" class="button to_cart">В корзину</span>
                                 <span id="@item.ProductId" class="button">Купить</span>
-
                             </div>
                         </div>
                     }
@@ -62,14 +58,21 @@
                         </div>
                     }
                     @*@Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })*@
-
                 </div>
             </a>
-
         </li>
     }
-</div>
-
+</ul>
+<script>
+        $(document).ready(function () {
+            $('.layout-buttons span').click(function () {
+                var $elem = $(this);
+                var $productList = $('.products');
+                $elem.toggleClass('active');
+                $elem.siblings().toggleClass('active');
+                $productList.toggleClass('table-layout');
+            });
+        });</script>
 <link href="~/Content/index.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
 <script src="~/Scripts/index_products.js"></script>

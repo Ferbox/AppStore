@@ -1,0 +1,10 @@
+﻿#member,#display, #color, #size  {
+display:none;
+}
+#memberL, #displayL, #colorL, #sizeL {
+    display: none;
+}
+body {
+color : white;
+background: black;
+}

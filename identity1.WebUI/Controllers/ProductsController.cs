@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using identity1.Common.Entities;
+using identity1.Common.Models.Enums;
 using identity1.LogicContracts;
 using Microsoft.AspNet.Identity;
 
@@ -26,12 +28,12 @@ namespace identity1.WebUI.Controllers
                 return HttpNotFound();
             }
         }
-        public ActionResult PageOfProduct(int id)
+        public async Task<ActionResult> PageOfProduct(int id)
         {
             try
             {
                 var product = logic.GetProduct(id);
-                return View(product);
+                return View(await product);
             }
             catch (NullReferenceException)
             {
@@ -103,90 +105,87 @@ namespace identity1.WebUI.Controllers
             return View(prod);
         }
 
+
+
+
+
+
+      
+        //=============================================
+        #region AdminFunctions
+        [Authorize(Roles = "admin")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(Product product ,IEnumerable<Image> image, string[] charak)
+        {
+            if (ModelState.IsValid)
+            {
+                logic.CreateProduct(product, charak);
+                return RedirectToAction("Index");
+            }
+            return View(product);
+        }
+
+        // GET: Products/Edit/5
+        //[Authorize(Roles = "admin")]
+        //public async Task<ActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Product product = await db.Products.FindAsync(id);
+        //    if (product == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(product);
+        //}
+        //[Authorize(Roles = "admin")]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Edit([Bind(Include = "ProductId,Title,Description,CountInStock,CostProduct,TypeId")] Product product)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(product).State = EntityState.Modified;
+        //        await db.SaveChangesAsync();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(product);
+        //}
+
+        //[Authorize(Roles = "admin")]
+        //public async Task<ActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Product product = await db.Products.FindAsync(id);
+        //    if (product == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(product);
+        //}
+        //[Authorize(Roles = "admin")]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> DeleteConfirmed(int id)
+        //{
+        //    Product product = await db.Products.FindAsync(id);
+        //    db.Products.Remove(product);
+        //    await db.SaveChangesAsync();
+        //    return RedirectToAction("Index");
+        //}
+        #endregion
     }
 }
 
 
-//#region AdminFunctions
-//// GET: Products/Create
-//[Authorize(Roles = "admin")]
-//public ActionResult Create()
-//{
-//    List<string> Types = new List<string> { "iPhone", "iMac", "iPad", "MacBook", "Watch", "Accessories" };
-
-//    SelectList types = new SelectList(Types);
-//    ViewBag.Types = types;
-//    return View();
-//}
-
-//// POST: Products/Create
-//// Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-//// сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
-//[HttpPost]
-//[ValidateAntiForgeryToken]
-//public async Task<ActionResult> Create([Bind(Include = "ProductId,Title,Description,CountInStock,CostProduct,TypeId")] Product product)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        db.Products.Add(product);
-//        await db.SaveChangesAsync();
-//        return RedirectToAction("Index");
-//    }
-
-//    return View(product);
-//}
-
-//// GET: Products/Edit/5
-//[Authorize(Roles = "admin")]
-//public async Task<ActionResult> Edit(int? id)
-//{
-//    if (id == null)
-//    {
-//        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-//    }
-//    Product product = await db.Products.FindAsync(id);
-//    if (product == null)
-//    {
-//        return HttpNotFound();
-//    }
-//    return View(product);
-//}
-
-//[HttpPost]
-//[ValidateAntiForgeryToken]
-//public async Task<ActionResult> Edit([Bind(Include = "ProductId,Title,Description,CountInStock,CostProduct,TypeId")] Product product)
-//{
-//    if (ModelState.IsValid)
-//    {
-//        db.Entry(product).State = EntityState.Modified;
-//        await db.SaveChangesAsync();
-//        return RedirectToAction("Index");
-//    }
-//    return View(product);
-//}
-
-//[Authorize(Roles = "admin")]
-//public async Task<ActionResult> Delete(int? id)
-//{
-//    if (id == null)
-//    {
-//        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-//    }
-//    Product product = await db.Products.FindAsync(id);
-//    if (product == null)
-//    {
-//        return HttpNotFound();
-//    }
-//    return View(product);
-//}
-
-//[HttpPost, ActionName("Delete")]
-//[ValidateAntiForgeryToken]
-//public async Task<ActionResult> DeleteConfirmed(int id)
-//{
-//    Product product = await db.Products.FindAsync(id);
-//    db.Products.Remove(product);
-//    await db.SaveChangesAsync();
-//    return RedirectToAction("Index");
-//}
-//#endregion

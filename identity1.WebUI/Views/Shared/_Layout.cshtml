@@ -2,21 +2,18 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
-
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
+    <div id="toTop"><img class="up" src="~/Content/Images/up.png" /> </div>
     <div class="site-container">
-        @Html.Partial("_LoginPartial")
         <div class="site-pusher">
             <header class="header">
                 <a href="#" class="header__icon" id="header__icon"></a>
@@ -28,10 +25,14 @@
                     @Html.ActionLink("Watch", "Index", "Products", new { type = Enums.TypeProduct.watch }, null)
                     @Html.ActionLink("iMac", "Index", "Products", new { type = Enums.TypeProduct.monoblock }, null)
                     @Html.ActionLink("Accessories", "Index", "Products", new { type = Enums.TypeProduct.accessories }, null)
-                </nav>
-            </header>
-            <div class="site-cache" id="site-cache"></div>
+                    @Html.Partial("_LoginPartial")
 
+                </nav>
+                <div class="layout-buttons">
+                    <span class="active icon icon-list"><img src="~/Content/Images/tile.png" /></span>
+                    <span class="icon icon-table"><img src="~/Content/Images/table.png" /></span>
+                </div>
+            </header>
 
             <div class="body-content">
                 @RenderBody()
@@ -44,6 +45,16 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/Layout.css" rel="stylesheet" type="text/css" />
     @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('.layout-buttons span').click(function () {
+                var $elem = $(this);
+                var $productList = $('.products');
+                $elem.toggleClass('active');
+                $elem.siblings().toggleClass('active');
+                $productList.toggleClass('table-layout');
+            });
+        });</script>
     <script>
         $(document).ready(function () {
 
@@ -62,6 +73,20 @@
 
         });
     </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
 </body>
-
 </html>
