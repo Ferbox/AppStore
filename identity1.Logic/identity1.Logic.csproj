@@ -54,7 +54,7 @@
       <Name>identity1.DALContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\identity1.LogicContracts\identity1.LogicContracts.csproj">
-      <Project>{7D24944F-0E7E-4DD8-A885-9DAD527205C8}</Project>
+      <Project>{7d24944f-0e7e-4dd8-a885-9dad527205c8}</Project>
       <Name>identity1.LogicContracts</Name>
     </ProjectReference>
   </ItemGroup>
