@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="identity1.DALContracts">
+      <HintPath>..\identity1.WebUI\Bin\identity1.DALContracts.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -99,6 +103,8 @@
     <Compile Include="Entities\Color.cs" />
     <Compile Include="Entities\Display.cs" />
     <Compile Include="Entities\Feedback.cs" />
+    <Compile Include="Entities\ImageOfFeedback.cs" />
+    <Compile Include="Entities\ImageOfProduct.cs" />
     <Compile Include="Entities\Image.cs" />
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\Order.cs" />
@@ -157,11 +163,27 @@
     <Compile Include="Migrations\201806050534212_edit product.Designer.cs">
       <DependentUpon>201806050534212_edit product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806141424582_add image.cs" />
+    <Compile Include="Migrations\201806141424582_add image.Designer.cs">
+      <DependentUpon>201806141424582_add image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141437394_add image2.cs" />
+    <Compile Include="Migrations\201806141437394_add image2.Designer.cs">
+      <DependentUpon>201806141437394_add image2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141439360_add image3.cs" />
+    <Compile Include="Migrations\201806141439360_add image3.Designer.cs">
+      <DependentUpon>201806141439360_add image3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806141443545_add image4.cs" />
+    <Compile Include="Migrations\201806141443545_add image4.Designer.cs">
+      <DependentUpon>201806141443545_add image4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enums\Enums.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
-    <Compile Include="Models\ViewModels\OrderList.cs" />
+    <Compile Include="Models\ViewModels\ProdCatalogViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +228,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806050534212_edit product.resx">
       <DependentUpon>201806050534212_edit product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141424582_add image.resx">
+      <DependentUpon>201806141424582_add image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141437394_add image2.resx">
+      <DependentUpon>201806141437394_add image2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141439360_add image3.resx">
+      <DependentUpon>201806141439360_add image3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806141443545_add image4.resx">
+      <DependentUpon>201806141443545_add image4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

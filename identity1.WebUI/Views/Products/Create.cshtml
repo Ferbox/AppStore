@@ -7,66 +7,88 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
 {
+<div id="form-horizontal">
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
     <h4>Product</h4>
     <hr />
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <table width="100%" cellspacing="0" cellpadding="4">
-        <tr>
-            <td align="right" width="100">@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "label title" })</td>
-            <td>@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form title" } })</td>
-            <td>
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "label description" })
-            </td>
-            <td> @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form description" } })</td>
-            <td>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">@Html.LabelFor(model => model.CountInStock, htmlAttributes: new { @class = "label count" })</td>
-            <td>
-                @Html.EditorFor(model => model.CountInStock, new { htmlAttributes = new { @class = "form count" } })
-            </td>
-            <td> @Html.ValidationMessageFor(model => model.CountInStock, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">@Html.LabelFor(model => model.CostProduct, htmlAttributes: new { @class = "label cost" })</td>
-            <td>
-                @Html.EditorFor(model => model.CostProduct, new { htmlAttributes = new { @class = "form cost" } })
-            </td>
-            <td>  @Html.ValidationMessageFor(model => model.CostProduct, "", new { @class = "text-danger" })</td>
-        </tr>
-        <tr>
-            <td align="right" valign="top">@Html.LabelFor(model => model.TypeId, htmlAttributes: new { @class = "label type" })</td>
-            <td>
-                @Html.DropDownList("Type", ViewBag.Types as SelectList , new { @class = "type" });
-            </td>
-            <td>  </td>
-        </tr>
 
-    </table>
+    @Html.HiddenFor(model => model.ProductId)
+
+    <div class="required">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "label title" })
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form title" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    </div>
+    <div class="required">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "label description" })
+        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form description" } })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="required">
+
+        @Html.LabelFor(model => model.CountInStock, htmlAttributes: new { @class = "label count" })
+        @Html.EditorFor(model => model.CountInStock, new { htmlAttributes = new { @class = "form count" } })
+        @Html.ValidationMessageFor(model => model.CountInStock, "", new { @class = "text-danger" })
+    </div>
+    <div class="required">
+        @Html.LabelFor(model => model.CostProduct, htmlAttributes: new { @class = "label cost" })
+        @Html.EditorFor(model => model.CostProduct, new { htmlAttributes = new { @class = "form cost" } })
+        @Html.ValidationMessageFor(model => model.CostProduct, "", new { @class = "text-danger" })
+    </div>
+    <div class="required">
+        @Html.LabelFor(model => model.TypeId, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "iMac", "iPad", "MacBook", "iPhone", "Watch", "Accessories" }), new { id = "type" })
+    </div>
+
+
+
+    <div id="member" class="option">
+        @Html.LabelFor(model => model.MemberId, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1000GB", "2000GB" }), new { id = "memberS", @class = "all" })
+    </div>
+    <div id="color" class="option">
+        @Html.LabelFor(model => model.ColorId, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "Red", "Space gray", "Silver", "Rose", "Rose gold", "Gold", "Jet black", "Black" }), new { id = "colorS", @class = "all" })
+    </div>
+    <div id="display" class="option">
+        @Html.LabelFor(model => model.DisplayId, htmlAttributes: new { @class = "labeldisplay" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "9,7", "10,5", "12,9", "21", "27", "12", "13", "15", "5,8", "4,7", "5,5", "4", "7,9" }), new { id = "displayS", @class = "all" })
+    </div>
+    <div id="size" class="option">
+        @Html.LabelFor(model => model.SizeBodyId, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "38 mm", "42 mm" }), new { id = "sizeS", @class = "all" })
+    </div>
+    <div id="cell" class="option">
+        @Html.LabelFor(model => model.Cellular, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "cellS", @class = "all" })
+    </div>
+    <div id="bar" class="option">
+        @Html.LabelFor(model => model.TouchBar, htmlAttributes: new { @class = "label type" })
+        @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "barS", @class = "all" })
+    </div>
+   
+        <div class="editor-label">Файл изображения</div>
+        
+            <input type='file' multiple name="files" />
+        
+
     <div class="col-md-offset-2 col-md-10">
         <input type="submit" value="Create" class="btn btn-default" />
     </div>
-    </div>
-
-    
+</div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <link href="~/Content/Products_Create.css" rel="stylesheet" />
+    <link href="~/Content/create_product.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/create_product.js"></script>
 }

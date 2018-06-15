@@ -1,7 +1,7 @@
-'use strict';
+﻿'use strict';
 
 // Модуль корзины
-var order = (function($) {
+var order = (function ($) {
 
     var ui = {
         $orderForm: $('#order-form'),
@@ -62,9 +62,9 @@ var order = (function($) {
                 freeDelivery.enabled
                     ? 'Мы дарим Вам бесплатную доставку!'
                     :
-                        'Сумма доставки ' + deliverySumma + ' рублей. ' +
-                        'Общая сумма заказа: ' +
-                        cartSumma + ' + ' + deliverySumma + ' = ' + fullSumma + ' рублей';
+                    'Сумма доставки ' + deliverySumma + ' рублей. ' +
+                    'Общая сумма заказа: ' +
+                    cartSumma + ' + ' + deliverySumma + ' = ' + fullSumma + ' рублей';
 
         ui.$delivery.type.val(deliveryType);
         ui.$delivery.summa.val(deliverySumma);
@@ -97,8 +97,8 @@ var order = (function($) {
     // Валидация формы
     function _validate() {
         var formData = ui.$orderForm.serializeArray(),
-            name = _.find(formData, {name: 'name'}).value,
-            email = _.find(formData, {name: 'email'}).value,
+            name = _.find(formData, { name: 'name' }).value,
+            email = _.find(formData, { name: 'email' }).value,
             isValid = (name !== '') && (email !== '');
         return isValid;
     }
@@ -106,7 +106,7 @@ var order = (function($) {
     // Подготовка данных корзины к отправке заказа
     function _getCartData() {
         var cartData = cart.getData();
-        _.each(cart.getData(), function(item) {
+        _.each(cart.getData(), function (item) {
             item.name = encodeURIComponent(item.name);
         });
         return cartData;
@@ -154,7 +154,7 @@ var order = (function($) {
             cache: false,
             dataType: 'json',
             error: _orderError,
-            success: function(responce) {
+            success: function (responce) {
                 if (responce.code === 'success') {
                     _orderSuccess(responce);
                 } else {

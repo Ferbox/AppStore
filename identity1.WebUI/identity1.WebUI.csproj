@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -220,7 +221,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,33 +235,19 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\create_product.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\foundation.css" />
     <Content Include="Content\Images\1.jpg" />
-    <Content Include="Content\Images\all product.jpg" />
-    <Content Include="Content\Images\apple_logo.png" />
-    <Content Include="Content\Images\iPad Pro.jpg" />
     <Content Include="Content\Images\IphoneX.jpg" />
-    <Content Include="Content\Images\macbook pro.jpg" />
-    <Content Include="Content\Images\next.png" />
-    <Content Include="Content\Images\prev.png" />
-    <Content Include="Content\Images\slider\1.jpeg" />
-    <Content Include="Content\Images\slider\2.jpeg" />
-    <Content Include="Content\Images\slider\3.jpeg" />
-    <Content Include="Content\Images\slider\4.jpeg" />
-    <Content Include="Content\Images\slider\5.jpeg" />
-    <Content Include="Content\Images\table.png" />
-    <Content Include="Content\Images\tile.png" />
-    <Content Include="Content\Images\up.png" />
-    <Content Include="Content\Images\watch.jpg" />
+    <Content Include="Content\Images\error.jpg" />
     <Content Include="Content\index.css" />
-    <Content Include="Content\login_.css" />
-    <Content Include="Content\main.css" />
-    <Content Include="Content\Order_Page.css" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\create_product.js" />
     <Content Include="Scripts\modernizr.foundation.js" />
     <Content Include="Content\Layout.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\pageofproduct.css" />
     <Content Include="Content\Products_Create.css" />
     <Content Include="favicon.ico" />
@@ -415,10 +401,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Order\OrderPage.cshtml" />
-    <Content Include="Views\Order\OrderList.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Main.cshtml" />
+    <Content Include="Views\Products\OrderList.cshtml" />
+    <Content Include="Views\Products\OrderPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

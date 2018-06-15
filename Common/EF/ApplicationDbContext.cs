@@ -15,7 +15,9 @@ namespace identity1.Common.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<Type> Types { get; set; }
         public DbSet<Feedback> Feedback { get; set; }
-        public DbSet<Image> Images { get; set; }
+        public DbSet<ImageOfProduct> ImagesProd { get; set; }
+        public DbSet<Image> ImageProduct { get; set; }
+        public DbSet<ImageofFeedback> ImagesFeed { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
