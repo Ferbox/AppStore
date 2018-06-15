@@ -15,12 +15,7 @@
                 <div class="img_product">
                     <img src="@Model.Images.FirstOrDefault().Path" alt="Product Image Description">
                 </div>
-                <nav class="img_gallery">
-                    @foreach (var item in Model.Images)
-                    {
-                        <a href="#" class="current"><img src="@item.Path" alt="alt"></a>
-                    }
-                </nav>
+                
             </div>
             <div class="six columns">
                 <div class="panel">
@@ -201,7 +196,7 @@
 
                     <input name="unit_price" id="unit_price" value="340.00" type="hidden">
                     <input value="271" name="sales_price" id="total_item" type="hidden">
-                    <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>
+                    <p style="font-size: 24px">Totals: <span id="grandTotal">@Model.Cost</span> руб.</p>
                     <a href="#" class="green">Add to Busket</a>
                 </div> <!-- end panel -->
             </div>
