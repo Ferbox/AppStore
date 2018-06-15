@@ -4,7 +4,6 @@ using identity1.Common.Entities;
 using identity1.DALContracts;
 using identity1.Common.EF;
 using System.Data.Entity;
-using System.Threading.Tasks;
 using identity1.Common.Models.ViewModels;
 
 namespace identity1.DAL.DAO
@@ -14,17 +13,17 @@ namespace identity1.DAL.DAO
         private ApplicationDbContext DbContext = new ApplicationDbContext();
         public ProductPage GetProduct(int id)
         {
-            var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
-            ProductPage productPage = new ProductPage { ProductId = product.ProductId, Cost = product.CostProduct, Count = product.CountInStock, Decsription = product.Description, Title = product.Title };
 
-            var images = from i in DbContext.ImagesProd
-                         join ip in DbContext.ImageProduct on i.ImageOfProductId equals ip.ImageOfProductId
-                         where ip.ProductId == id
-                         select i;
-            foreach (var item in images)
-            {
-                productPage.Images.Add(item);
-            }
+
+            var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
+            ProductPage productPage = new ProductPage { ProductId = product.ProductId, TypeId = product.TypeId, Cost = product.CostProduct, Count = product.CountInStock, Description = product.Description, Title = product.Title };
+            var images = ( from i in DbContext.ImagesProd
+                           join i_p in DbContext.ImageProduct on i.ImageOfProductId equals i_p.ImageOfProductId
+                           where i_p.ProductId == id
+                           select i).ToList();
+            productPage.Images = new List<ImageOfProduct>();
+            productPage.Images.AddRange(images);
+
             return productPage;
         }
         public IEnumerable<ProdCatalogViewModel> GetProducts(int type)

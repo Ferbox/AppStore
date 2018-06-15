@@ -2,16 +2,13 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/Content/main.css" />
-
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
@@ -19,11 +16,11 @@
     <div class="autorization">@Html.Partial("_LoginPartial")</div>
     <div class="site-container">
         <div id="toTop"><img class="up" src="~/Content/Images/up.png" /> </div>
- 
+
         <div class="site-pusher">
             <header class="header">
                 <a href="#" class="header__icon" id="header__icon"></a>
-               
+
                 <nav class="menu">
                     @Html.ActionLink("Main Page", "Main", "Products")
                     @Html.ActionLink("Macbook", "Index", "Products", new { type = (int)Enums.TypeProduct.laptop }, null)
@@ -41,25 +38,19 @@
                     </div>
 }
                 </nav>
-
             </header>
-
-
 
             <div class="body-content">
                 @RenderBody()
             </div>
         </div> <!-- END site-pusher -->
     </div> <!-- END site-container -->
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/Layout.css" rel="stylesheet" type="text/css" />
     @RenderSection("Scripts", required: false)
-
     <script>
         $(document).ready(function () {
             $('.layout-buttons span').click(function () {
@@ -104,5 +95,4 @@
         });
     </script>
 </body>
-
 </html>

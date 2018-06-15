@@ -35,15 +35,8 @@ namespace identity1.WebUI.Controllers
         }
         public ActionResult PageOfProduct(int id)
         {
-            try
-            {
                 var product = logic.GetProduct(id);
                 return View(product);
-            }
-            catch (NullReferenceException)
-            {
-                return HttpNotFound();
-            }
         }
 
 
@@ -70,6 +63,7 @@ namespace identity1.WebUI.Controllers
             }
             return View(logic.GetProducts(productIdInBasket));
         }
+        
         public ActionResult DeleteFromBasket(int id)
         {
             for (int i = 0;i < Session.Count;i++)
@@ -134,12 +128,10 @@ namespace identity1.WebUI.Controllers
                 nameFiles.Add("~/Content/Images/" + file.FileName);
                 file.SaveAs(Server.MapPath("~/Content/Images/" + file.FileName));
             }
-            if (ModelState.IsValid)
-            {
+            
                 logic.CreateProduct(product, charak, nameFiles);
-                return RedirectToAction("Index");
-            }
-            return View(product);
+            
+            return RedirectToAction("Index");
         }
 
         // GET: Products/Edit/5
