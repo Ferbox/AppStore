@@ -12,10 +12,20 @@ namespace identity1.DAL.DAO
     public class ProductsDao:IProductDao
     {
         private ApplicationDbContext DbContext = new ApplicationDbContext();
-        public async Task<Product> GetProduct(int id)
+        public ProductPage GetProduct(int id)
         {
-            var product = await DbContext.Products.Include(p => p.Images).FirstOrDefaultAsync(x => x.ProductId == id);
-            return product;
+            var product = DbContext.Products.FirstOrDefault(x => x.ProductId == id);
+            ProductPage productPage = new ProductPage { ProductId = product.ProductId, Cost = product.CostProduct, Count = product.CountInStock, Decsription = product.Description, Title = product.Title };
+
+            var images = from i in DbContext.ImagesProd
+                         join ip in DbContext.ImageProduct on i.ImageOfProductId equals ip.ImageOfProductId
+                         where ip.ProductId == id
+                         select i;
+            foreach (var item in images)
+            {
+                productPage.Images.Add(item);
+            }
+            return productPage;
         }
         public IEnumerable<ProdCatalogViewModel> GetProducts(int type)
         {

@@ -8,7 +8,7 @@ namespace identity1.LogicContracts
 {
     public interface IProductLogic
     {
-        Task<Product> GetProduct(int id);
+        ProductPage GetProduct(int id);
         IEnumerable<ProdCatalogViewModel> GetProducts(int type);
         IEnumerable<Product> GetProducts(int[] prodInBasket);
         void CreateOrder(Order order, string id, int[] orderlist, int[] qty);

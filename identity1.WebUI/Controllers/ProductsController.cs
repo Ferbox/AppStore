@@ -33,12 +33,12 @@ namespace identity1.WebUI.Controllers
                 return HttpNotFound();
             }
         }
-        public async Task<ActionResult> PageOfProduct(int id)
+        public ActionResult PageOfProduct(int id)
         {
             try
             {
                 var product = logic.GetProduct(id);
-                return View(await product);
+                return View(product);
             }
             catch (NullReferenceException)
             {
