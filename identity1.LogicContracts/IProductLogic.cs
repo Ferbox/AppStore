@@ -11,6 +11,6 @@ namespace identity1.LogicContracts
         IEnumerable<Product> GetProducts(int type);
         IEnumerable<Product> GetProducts(int[] prodInBasket);
         void CreateOrder(Order order, string id, int[] orderlist, int[] qty);
-        void CreateProduct(Product product, string[] charak);
+        void CreateProduct(Product product, string[] charak, string[] files);
     }
 }

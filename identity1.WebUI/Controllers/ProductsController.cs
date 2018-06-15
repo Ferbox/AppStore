@@ -134,7 +134,7 @@ namespace identity1.WebUI.Controllers
             }
             if (ModelState.IsValid)
             {
-                logic.CreateProduct(product, charak);
+                //logic.CreateProduct(product, charak);
                 return RedirectToAction("Index");
             }
             return View(product);
