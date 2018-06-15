@@ -1,32 +1,27 @@
-﻿@model IEnumerable<identity1.Common.Models.ViewModels.OrderList>
+﻿@model IEnumerable<identity1.Common.Entities.Product>
 <table>
     <tr>
-        <th>
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cost)
+            @Html.DisplayNameFor(model => model.CostProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Qty)
+            
         </th>
         <th></th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                <div class="text-xs-center">
-                    <img src="@item.Logo" class="img-rounded" alt="Responsive image" />
-                </div>
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cost)
+                @Html.DisplayFor(modelItem => item.CostProduct)
             </td>
             <td>
                 <input type="text" name="qty" value="1" />
