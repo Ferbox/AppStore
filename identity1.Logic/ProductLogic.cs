@@ -19,10 +19,10 @@ namespace identity1.Logic
         {
             productDao = _productDao;
         }
-        public async Task<Product> GetProduct(int id)
+        public ProductPage GetProduct(int id)
         {
             var product = productDao.GetProduct(id);
-            return await product;
+            return product;
         }
         public IEnumerable<Product> GetProducts(int[] prodInCart)
         {
