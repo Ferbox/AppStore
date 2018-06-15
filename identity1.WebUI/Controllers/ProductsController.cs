@@ -128,13 +128,15 @@ namespace identity1.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Product product , string[] charak, IEnumerable<HttpPostedFileBase> files)
         {
+            List<string> nameFiles = new List<string>();
             foreach (var file in files)
             {
+                nameFiles.Add("~/Content/Images/" + file.FileName);
                 file.SaveAs(Server.MapPath("~/Content/Images/" + file.FileName));
             }
             if (ModelState.IsValid)
             {
-                //logic.CreateProduct(product, charak);
+                logic.CreateProduct(product, charak, nameFiles);
                 return RedirectToAction("Index");
             }
             return View(product);
