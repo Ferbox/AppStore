@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<identity1.Common.Entities.Product>
+@model IEnumerable<identity1.Common.Models.ViewModels.ProdCatalogViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -12,7 +12,7 @@
             <a href="" class="product">
                 <div class="product-main">
                     <div class="product-photo">
-                        <img src="~/Content/Images/IphoneX.jpg" />
+                        <img src=@item.Logo/>
                         <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
                     </div>
 
@@ -21,7 +21,7 @@
                     <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
                     <div class="product-detail-wrap">
                         <div class="product-availability">
-                            @if (item.CountInStock == 0)
+                            @if (item.Count == 0)
                             {
                                 @: Нет в наличии
                             }
@@ -31,7 +31,7 @@
                             }
                         </div>
                         <span class="product-price">
-                            <small>@Html.DisplayFor(modelItem => item.CostProduct)</small>
+                            <small>@Html.DisplayFor(modelItem => item.Cost)</small>
                         </span>
                     </div>
                     @if (User.Identity.IsAuthenticated)

@@ -5,7 +5,7 @@ using identity1.DALContracts;
 using identity1.Common.EF;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using System;
+using identity1.Common.Models.ViewModels;
 
 namespace identity1.DAL.DAO
 {
@@ -17,11 +17,15 @@ namespace identity1.DAL.DAO
             var product = await DbContext.Products.Include(p => p.Images).FirstOrDefaultAsync(x => x.ProductId == id);
             return product;
         }
-        public IEnumerable<Product> GetProducts(int type)
+        public IEnumerable<ProdCatalogViewModel> GetProducts(int type)
         {
-            var pr = DbContext.Products.GroupBy(p => p.Title).Select(y => y.FirstOrDefault());
-            return pr;
-            
+            //var pr = DbContext.Products.Include(x => x.Images).GroupBy(p => p.Title).Select(y => y.FirstOrDefault());
+            var products = from p in DbContext.Products
+                           join ip in DbContext.ImageProduct on p.ProductId equals ip.ProductId
+                           join i in DbContext.ImagesProd on ip.ImageOfProductId equals i.ImageOfProductId
+                           where p.TypeId == type
+                           select new ProdCatalogViewModel { ProductId = p.ProductId, Title = p.Title, Cost = p.CostProduct, Count = p.CountInStock, Logo = i.Path };
+            return products.GroupBy(x => x.Title).Select(t => t.FirstOrDefault());
         }
         public IEnumerable<Product> GetProducts(int[] idProducts)
         {
@@ -41,7 +45,18 @@ namespace identity1.DAL.DAO
             DbContext.SaveChanges();
         }
 
-
+        public void CreateProduct(Product product, List<string> nameFiles)
+        {
+            List<Image> listImage = new List<Image>();
+            DbContext.Products.Add(product);
+            foreach (var item in nameFiles)
+            {
+                ImageOfProduct image = new ImageOfProduct { Path = item };
+                DbContext.ImageProduct.Add(new Image { ProductId = product.ProductId, ImageOfProductId = image.ImageOfProductId });
+                DbContext.ImagesProd.Add(image);
+            }
+            DbContext.SaveChanges();
+        }
     }
 }
 
