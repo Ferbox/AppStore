@@ -15,6 +15,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
+  
     <div class="autorization">@Html.Partial("_LoginPartial")</div>
     <div class="site-container">
         <div id="toTop"><img class="up" src="~/Content/Images/up.png" /> </div>
@@ -24,6 +25,7 @@
                 <a href="#" class="header__icon" id="header__icon"></a>
                
                 <nav class="menu">
+                    @Html.ActionLink("Main Page", "Main", "Products")
                     @Html.ActionLink("Macbook", "Index", "Products", new { type = (int)Enums.TypeProduct.laptop }, null)
                     @Html.ActionLink("iPhone", "Index", "Products", new { type = (int)Enums.TypeProduct.phone }, null)
                     @Html.ActionLink("iPad", "Index", "Products", new { type = (int)Enums.TypeProduct.tablet }, null)
@@ -31,11 +33,13 @@
                     @Html.ActionLink("iMac", "Index", "Products", new { type = (int)Enums.TypeProduct.monoblock }, null)
                     @Html.ActionLink("Accessories", "Index", "Products", new { type = (int)Enums.TypeProduct.accessories }, null)
                     @Html.ActionLink("Basket","Basket","Products")
-
+@if (ViewBag.Title == "Index")
+{
                     <div class="layout-buttons">
                         <span class="active icon icon-list"><img src="~/Content/Images/tile.png" /></span>
                         <span class="icon icon-table"><img src="~/Content/Images/table.png" /></span>
                     </div>
+}
                 </nav>
 
             </header>

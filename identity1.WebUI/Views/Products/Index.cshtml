@@ -32,7 +32,7 @@
                             }
                         </div>
                         <span class="product-price">
-                            <small>@Html.DisplayFor(modelItem => item.Cost)</small>
+                            @Html.DisplayFor(modelItem => item.Cost)<small>руб.</small>
                         </span>
                     </div>
                     @if (User.Identity.IsAuthenticated)
