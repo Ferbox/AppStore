@@ -35,15 +35,8 @@ namespace identity1.WebUI.Controllers
         }
         public ActionResult PageOfProduct(int id)
         {
-            try
-            {
                 var product = logic.GetProduct(id);
                 return View(product);
-            }
-            catch (NullReferenceException)
-            {
-                return HttpNotFound();
-            }
         }
 
 

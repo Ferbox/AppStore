@@ -3,22 +3,18 @@
 @{
     ViewBag.Title = "Index";
 }
-<div>   <hr /></div>
-<div>   <hr /></div>
-<div>   <hr /></div>
-@Html.ActionLink("Создать новый продукт", "Create")
 
 <ul class="products clearfix">
     @foreach (var item in Model)
     {
+
         <li class="product-wrapper">
-            <a href="" class="product">
+            <div class="product">
                 <div class="product-main">
                     <div class="product-photo">
                         <img src="@item.Logo" />
-                        <div class="product-preview"><div class="button">Быстрый просмотр</div></div>
+                        <div class="product-preview">@Html.ActionLink("Просмотр товара", "PageOfProduct", new { id = item.ProductId }, new { @class = "button" }) </div>
                     </div>
-
                 </div>
                 <div class="product-details-wrap">
                     <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
@@ -42,7 +38,6 @@
                         <div class="product-buttons-wrap">
                             <div class="buttons">
                                 <span id="@item.ProductId" class="button to_cart">В корзину</span>
-                                <span id="@item.ProductId" class="button">Купить</span>
 
                             </div>
                         </div>
@@ -56,14 +51,11 @@
                         </div>
                     }
                     @*@Html.ActionLink("Продукт", "PageOfProduct", new { id = item.ProductId })*@
-
                 </div>
-            </a>
-
+            </div>
         </li>
     }
 </ul>
-
 <script>
     $(document).ready(function () {
         $('.layout-buttons span').click(function () {

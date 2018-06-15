@@ -1,5 +1,5 @@
 ﻿@model identity1.Common.Models.ViewModels.ProductPage
-    @using identity1.Common.Models.Enums
+@using identity1.Common.Models.Enums
 @{
     ViewBag.Title = Model.Title;
 }
@@ -8,51 +8,155 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <!-- ######################## Section ######################## -->
-
 <section class="section_light">
     <div class="row">
-
-        @*<div class="row">
+        <div class="row">
             <div class="six columns image">
                 <div class="img_product">
-                    <img src="@Model.Images.FirstOrDefault(i => i.Name == "logo").Path" alt="Product Image Description">
+                    <img src="@Model.Images.FirstOrDefault().Path" alt="Product Image Description">
                 </div>
                 <nav class="img_gallery">
                     @foreach (var item in Model.Images)
                     {
-                        <a href="@item.Path" class="current"><img src="@item.Path" alt=""></a>
+                        <a href="#" class="current"><img src="@item.Path" alt="alt"></a>
                     }
                 </nav>
-            </div>*@
+            </div>
             <div class="six columns">
                 <div class="panel">
                     <h3>@Model.Title</h3>
-                    <h5>Память</h5>
-                    <form name="product_list" action="#">
-                        <select name="print">
-                            <option value="1100">32Gb</option>
-                            <option value="2900">64Gb</option>
-                            <option value="1600">128Gb</option>
-                        </select>
-                        </form>
-                        <h5>Color</h5>
-                        <select name="print">
-                            <option value="1100">Black</option>
-                            <option value="2900">White</option>
-                            <option value="1600">Pink</option>
-                        </select>
-                        <input name="unit_price" id="unit_price" value="340.00" type="hidden">
-                        <input value="271" name="sales_price" id="total_item" type="hidden">
-                        <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>
-                        <a href="#" class="green">Add to Busket</a>
-                    </form>
+                    @if (Model.TypeId == (int)Enums.TypeProduct.phone)
+                    {
+                        using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+
+                            <h5>Color</h5>
+                            if (Model.Title == "iPhone X")
+                            {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver" }), new { id = "colorS", @class = "all" });
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "64GB", "128GB", "256GB" }), new { id = "memberS", @class = "all" })
+                        }
+                        else if (Model.Title == "iPhone 8" || Model.Title == "iPhone 8 Plus")
+                        {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver", "Gold", "Red" }), new { id = "colorS", @class = "all" });
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                    }
+                    else if (Model.Title == "iPhone 7" || Model.Title == "iPhone 7 Plus")
+                    {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Jet Black", "Black" }), new { id = "colorS", @class = "all" });
+                    @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB" }), new { id = "memberS", @class = "all" })
+                }
+                else if (Model.Title == "iPhone 6s" || Model.Title == "iPhone 6s Plus" || Model.Title == "iPhone SE")
+                {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Space gray" }), new { id = "colorS", @class = "all" });
+                @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+            }
+        }
+    }
+                    @if (Model.TypeId == (int)Enums.TypeProduct.tablet)
+                    {
+                        using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h5>Память</h5>
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1000GB", "2000GB" }), new { id = "memberS", @class = "all" })
+                            <h5>Color</h5>
+                            if (Model.Title == "iPad")
+                            {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver" }), new { id = "colorS", @class = "all" });
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "64GB", "128GB", "256GB" }), new { id = "memberS", @class = "all" })
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "cellS", @class = "all" })
+                        }
+                        else if (Model.Title == "iPad Pro 12.9")
+                        {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver", "Gold", "Red" }), new { id = "colorS", @class = "all" });
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "cellS", @class = "all" })
+                    }
+                    else if (Model.Title == "iPad Pro 10.5")
+                    {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Jet Black", "Black" }), new { id = "colorS", @class = "all" });
+                    @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB" }), new { id = "memberS", @class = "all" })
+                    @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "cellS", @class = "all" })
+                }
+                else if (Model.Title == "iPad 9.7" || Model.Title == "iPad mini 4")
+                {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Space gray" }), new { id = "colorS", @class = "all" });
+                @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "cellS", @class = "all" })
+            }
+        }
+    }
+                    @if (Model.TypeId == (int)Enums.TypeProduct.laptop)
+                    {
+                        using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h5>Память</h5>
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1000GB", "2000GB" }), new { id = "memberS", @class = "all" })
+                            <h5>Color</h5>
+                            if (Model.Title == "MacBook Pro 13.0")
+                            {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver" }), new { id = "colorS", @class = "all" });
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "64GB", "128GB", "256GB" }), new { id = "memberS", @class = "all" })
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "barS", @class = "all" })
+                        }
+                        else if (Model.Title == "MacBook Pro 15.0")
+                        {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver", "Gold", "Red" }), new { id = "colorS", @class = "all" });
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "barS", @class = "all" })
+                    }
+                    else if (Model.Title == "MacBook Air")
+                    {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Jet Black", "Black" }), new { id = "colorS", @class = "all" });
+                    @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB" }), new { id = "memberS", @class = "all" })
+                    @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "barS", @class = "all" })
+                }
+                else if (Model.Title == "MacBook")
+                {@Html.DropDownList("charak", new SelectList(new List<string> { "Rose Gold", "Silver", "Gold", "Space gray" }), new { id = "colorS", @class = "all" });
+                @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                @Html.DropDownList("charak", new SelectList(new List<string> { "Есть", "Нету" }), new { id = "barS", @class = "all" })
+            }
+        }
+    }
+
+                    @if (Model.TypeId == (int)Enums.TypeProduct.monoblock)
+                    {
+                        using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h5>Память</h5>
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1000GB", "2000GB" }), new { id = "memberS", @class = "all" })
+                            <h5>Color</h5>
+                            if (Model.Title == "iMac")
+                            {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver" }), new { id = "colorS", @class = "all" });
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "64GB", "128GB", "256GB" }), new { id = "memberS", @class = "all" })
+                        }
+                        else if (Model.Title == "iMac Pro")
+                        {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver", "Gold", "Red" }), new { id = "colorS", @class = "all" });
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB" }), new { id = "memberS", @class = "all" })
+                    }
+                }
+            }
+
+                    @if (Model.TypeId == (int)Enums.TypeProduct.watch)
+                    {
+                        using (Html.BeginForm("Create", "Products", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h5>Память</h5>
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "16GB", "32GB", "64GB", "128GB", "256GB", "512GB", "1000GB", "2000GB" }), new { id = "memberS", @class = "all" })
+                            <h5>Color</h5>
+                            if (Model.Title == "Apple Watch Series 3")
+                            {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver" }), new { id = "colorS", @class = "all" });
+                            @Html.DropDownList("charak", new SelectList(new List<string> { "38 mm", "42 mm" }), new { id = "sizeS", @class = "all" })
+                        }
+                        else if (Model.Title == "Apple Watch Series 1")
+                        {@Html.DropDownList("charak", new SelectList(new List<string> { "Space gray", "Silver", "Gold", "Red" }), new { id = "colorS", @class = "all" });
+                        @Html.DropDownList("charak", new SelectList(new List<string> { "38 mm", "42 mm" }), new { id = "sizeS", @class = "all" })
+                    }
+                }
+            }
+                    <input name="unit_price" id="unit_price" value="340.00" type="hidden">
+                    <input value="271" name="sales_price" id="total_item" type="hidden">
+                    <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>
+                    <a href="#" class="green">Add to Busket</a>
                 </div> <!-- end panel -->
             </div>
         </div><!-- end row -->
         <!---------------------------------------------------------------[]-->
-
-
-
 
 
         <h4>Product Info</h4>
@@ -72,7 +176,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
 </section>
 <!-- end section -->
