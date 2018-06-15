@@ -42,6 +42,7 @@ namespace identity1.Logic
         public void CreateProduct(Product product, string[] charak, List<string> files)
         {
             int typeId = DefineType(charak[0]);
+            product.TypeId = typeId;
             if (typeId == (int)Enums.TypeProduct.phone)
             {
                 product.MemberId = DefineMember(charak[1]);
